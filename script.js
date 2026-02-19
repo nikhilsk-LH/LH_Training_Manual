@@ -44,6 +44,18 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: 'General Etiquette', icon: '🤝', id: 'general_etiquette' }
     ];
 
+    const subCategories = {
+        'when_i_work': [
+            { title: 'Swapping the blocks', icon: '🔄', id: 'swapping_blocks' },
+            { title: 'Publishing slots', icon: '📅', id: 'publishing_slots' }
+        ],
+        'feedbacks': [
+            { title: 'Driver FeedBack', icon: '💬', id: 'driver_feedback' },
+            { title: 'First slot feedback', icon: '1️⃣', id: 'first_slot_feedback' },
+            { title: 'Product feedbacks', icon: '📝', id: 'product_feedback' }
+        ]
+    };
+
     // Workflow Data Structure
     const workflows = {
         'driver_cancel': {
@@ -102,12 +114,136 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                 correctAnswer: "scout@laundryheap.com"
             }
+        },
+        'publishing_slots': {
+            images: [
+                'assets/images/Block swap between driver /1.png',
+                'assets/images/Block swap between driver /2.png',
+                'assets/images/Block swap between driver /3.png',
+                'assets/images/Block swap between driver /4.png',
+                'assets/images/Block swap between driver /5.png',
+                'assets/images/Block swap between driver /6.png',
+                'assets/images/Block swap between driver /7.png'
+            ],
+            quiz: {
+                question: "When is a block Published on When I Work",
+                options: [
+                    "When driver cancels",
+                    "When a driver approches us for a block",
+                    "When there is a requirement",
+                    "To get more orders"
+                ],
+                correctAnswer: "When there is a requirement"
+            }
+        },
+        'swapping_blocks': {
+            images: [
+                'assets/images/WIW/1.png',
+                'assets/images/WIW/2.png',
+                'assets/images/WIW/3.png',
+                'assets/images/WIW/4.png',
+                'assets/images/WIW/5.png',
+                'assets/images/WIW/6.png'
+            ],
+            quiz: {
+                question: "What if the second driver is already having a block?",
+                options: [
+                    "Inform the first driver that the swap is unsuccessfull",
+                    "Delete the current block and assign the new block",
+                    "Assign both the blocks",
+                    "Leave it with second driver to choose"
+                ],
+                correctAnswer: "Inform the first driver that the swap is unsuccessfull"
+            }
+        },
+        'general_etiquette': {
+            images: [
+                'assets/images/Etiquette/1.png',
+                'assets/images/Etiquette/2.png',
+                'assets/images/Etiquette/3.png',
+                'assets/images/Etiquette/4.png'
+            ],
+            quiz: null
+        },
+        'driver_feedback': {
+            images: [
+                'assets/images/Feedbacks/Driver/1.png',
+                'assets/images/Feedbacks/Driver/2.png',
+                'assets/images/Feedbacks/Driver/3.png',
+                'assets/images/Feedbacks/Driver/4.png',
+                'assets/images/Feedbacks/Driver/5.png',
+                'assets/images/Feedbacks/Driver/6.png',
+                'assets/images/Feedbacks/Driver/7.png',
+                'assets/images/Feedbacks/Driver/8.png',
+                'assets/images/Feedbacks/Driver/9.png',
+                'assets/images/Feedbacks/Driver/10.png',
+                'assets/images/Feedbacks/Driver/11.png'
+            ],
+            quiz: {
+                question: "If driver has a block from 5-9 and if he starts at 5:40, should be raise a feedback for lateness?",
+                options: [
+                    "YES",
+                    "NO"
+                ],
+                correctAnswer: "YES"
+            }
+        },
+        'first_slot_feedback': {
+            images: [
+                'assets/images/Feedbacks/Test/1.png',
+                'assets/images/Feedbacks/Test/2.png',
+                'assets/images/Feedbacks/Test/3.png',
+                'assets/images/Feedbacks/Test/4.png',
+                'assets/images/Feedbacks/Test/5.png'
+            ],
+            quiz: {
+                question: "How to check if the test slot is a good fit for the platform?",
+                options: [
+                    "Monitoring Punctuality and Reviewing photos taken by driver",
+                    "By calling driver",
+                    "If he asks less money when compared to others",
+                    "If he is slow on the route"
+                ],
+                correctAnswer: "Monitoring Punctuality and Reviewing photos taken by driver"
+            }
+        },
+        'product_feedback': {
+            images: [
+                'assets/images/Feedbacks/Product/1.png',
+                'assets/images/Feedbacks/Product/2.png',
+                'assets/images/Feedbacks/Product/3.png',
+                'assets/images/Feedbacks/Product/4.png',
+                'assets/images/Feedbacks/Product/5.png'
+            ],
+            quiz: null
+        },
+        'driver_mapping': {
+            images: [
+                'assets/images/Driver mapping/1.png',
+                'assets/images/Driver mapping/2.png',
+                'assets/images/Driver mapping/3.png',
+                'assets/images/Driver mapping/4.png',
+                'assets/images/Driver mapping/5.png',
+                'assets/images/Driver mapping/6.png',
+                'assets/images/Driver mapping/7.png'
+            ],
+            quiz: {
+                question: "How to check which Facility, is the driver operating for?",
+                options: [
+                    "Ask the driver",
+                    "Check When I Work",
+                    "Map the driver wherever needed",
+                    "Check with POPS Team"
+                ],
+                correctAnswer: "Check When I Work"
+            }
         }
     };
 
     let currentWorkflowId = null;
     let currentSlide = 0;
     let maxSlideReached = 0;
+    let navigationStack = [];
 
     // --- Mock Data for Global Search ---
     const templates = [
@@ -131,6 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             searchResultsContainer.classList.add('hidden');
             mainCardsContainer.classList.remove('hidden'); // Default back to home
+            navigationStack = []; // Reset stack
         }
     });
 
@@ -161,6 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hideAllViews();
         mainCardsContainer.classList.remove('hidden');
         searchInput.value = '';
+        navigationStack = []; // Reset stack
     }
 
     // --- Card Interaction (Home) ---
@@ -171,6 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = 'https://nikhilsk-lh.github.io/LH_Template/';
             } else if (category === 'LOGS') {
                 showCategoryView('LOGS', logsSubCategories);
+                navigationStack.push({ view: 'home' }); // Stack home before entering LOGS
             } else {
                 alert('Feature coming soon!');
             }
@@ -178,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Category View Logic ---
-    function showCategoryView(title, items) {
+    function showCategoryView(title, items, isBackNavigation = false) {
         hideAllViews();
         categoryView.classList.remove('hidden');
         categoryTitle.textContent = title;
@@ -189,7 +328,11 @@ document.addEventListener('DOMContentLoaded', () => {
             card.className = 'card';
             card.innerHTML = `<div class="icon">${item.icon}</div><h2>${item.title}</h2>`;
             card.addEventListener('click', () => {
-                if (workflows[item.id]) {
+                if (subCategories[item.id]) {
+                    // Navigate deeper
+                    navigationStack.push({ view: 'category', title: title, items: items });
+                    showCategoryView(item.title, subCategories[item.id]);
+                } else if (workflows[item.id]) {
                     startWorkflow(item.id);
                 } else {
                     alert(`${item.title} workflow is coming soon!`);
@@ -199,7 +342,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    backButton.addEventListener('click', showMainHome);
+    backButton.addEventListener('click', () => {
+        if (navigationStack.length > 0) {
+            const previousState = navigationStack.pop();
+            if (previousState.view === 'home') {
+                showMainHome();
+            } else if (previousState.view === 'category') {
+                showCategoryView(previousState.title, previousState.items, true);
+            }
+        } else {
+            showMainHome();
+        }
+    });
 
     // --- Workflow Logic (Carousel) ---
     function startWorkflow(workflowId) {
@@ -258,7 +412,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     markCompleteBtn.addEventListener('click', () => {
-        showQuizView();
+        const workflow = workflows[currentWorkflowId];
+        if (workflow.quiz) {
+            showQuizView();
+        } else {
+            alert("Workflow Completed!");
+            showCategoryView('LOGS', logsSubCategories);
+        }
     });
 
     // --- Quiz Logic ---
