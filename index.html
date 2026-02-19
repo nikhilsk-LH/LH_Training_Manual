@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundryheap - Training Manual</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo-container">
+            <span class="heart-icon">💛</span>
+            <h1>Laundryheap</h1>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search templates...">
+            <span class="search-icon">🔍</span>
+        </div>
+    </header>
+
+    <main>
+        <div id="home-cards" class="cards-container">
+            <div class="card" data-category="LOGS">
+                <div class="icon">🚚</div>
+                <h2>LOGS</h2>
+                <div class="card-content">
+                    <!-- Dynamic content will be loaded here if needed, or specific links -->
+                    <p>Log related templates</p>
+                </div>
+            </div>
+
+            <div class="card" data-category="COPS">
+                <div class="icon">🎧</div> <!-- Customer Support Icon -->
+                <h2>COPS</h2>
+                <div class="card-content">
+                    <p>Customer Operations</p>
+                </div>
+            </div>
+
+            <div class="card" data-category="POPS">
+                <div class="icon">📦</div>
+                <h2>POPS</h2>
+                <div class="card-content">
+                    <p>Partner Operations</p>
+                </div>
+            </div>
+
+            <div class="card" data-category="Template">
+                <div class="icon">📝</div>
+                <h2>Template</h2>
+                <div class="card-content">
+                    <p>General Templates</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="categoryView" class="hidden">
+            <button id="backButton" class="back-btn">← Back to Home</button>
+            <h2 id="categoryTitle" style="color: white; margin-bottom: 1rem; text-align: center;">Category Title</h2>
+            <div id="categoryCardsContainer" class="cards-container">
+                <!-- Sub-category cards will be injected here -->
+            </div>
+        </div>
+
+        <!-- Driver Cancellation Carousel View -->
+        <div id="driverCancellationView" class="hidden">
+            <button id="carouselBackButton" class="back-btn">← Back to Category</button>
+            <div class="carousel-container">
+                <img id="carouselImage" src="" alt="Instruction Step" class="carousel-image">
+                <div class="carousel-controls">
+                    <button id="prevBtn" class="nav-btn">Previous</button>
+                    <span id="slideCounter">1 / 4</span>
+                    <button id="nextBtn" class="nav-btn">Next</button>
+                </div>
+                <button id="markCompleteBtn" class="action-btn" disabled>Mark as Complete</button>
+            </div>
+        </div>
+
+        <!-- Quiz View -->
+        <div id="quizView" class="hidden">
+            <div class="quiz-container">
+                <h2>Quick Quiz</h2>
+                <p class="question">What is the 1st step in driver cancellation?</p>
+                <div class="options">
+                    <button class="option-btn">Cancel immediately</button>
+                    <button class="option-btn">Call driver</button>
+                    <button class="option-btn">Tell him to release the block and share an email</button>
+                    <button class="option-btn">Charge him directly</button>
+                </div>
+                <button id="submitQuizBtn" class="action-btn hidden" style="margin-top: 1rem;">Submit</button>
+                <div id="quizResult" class="hidden"></div>
+                <button id="quizHomeBtn" class="back-btn hidden" style="margin-top: 1rem; align-self: center;">Back to
+                    Home</button>
+            </div>
+        </div>
+
+        <div id="searchResults" class="search-results hidden">
+            <!-- Search results will appear here dynamically -->
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
