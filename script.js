@@ -237,6 +237,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                 correctAnswer: "Check When I Work"
             }
+        },
+        'communication': {
+            images: [
+                'assets/images/communication/1.png',
+                'assets/images/communication/2.png',
+                'assets/images/communication/3.png',
+                'assets/images/communication/4.png',
+                'assets/images/communication/5.png'
+            ],
+            quiz: null
         }
     };
 
