@@ -247,6 +247,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/communication/5.png'
             ],
             quiz: null
+        },
+        'fleet_dashboard': {
+            images: [
+                'assets/images/Fleet dashboard/1.png',
+                'assets/images/Fleet dashboard/2.png',
+                'assets/images/Fleet dashboard/3.png',
+                'assets/images/Fleet dashboard/4.png',
+                'assets/images/Fleet dashboard/5.png',
+                'assets/images/Fleet dashboard/6.png'
+            ],
+            quiz: {
+                question: "how will we identify delayed tasks.",
+                options: [
+                    "shows a Grey icon next to driver name",
+                    "shows a Yellow icon next to driver name",
+                    "shows a  Red icon next to driver name",
+                    "Shows the number and icon in yellow next to driver name"
+                ],
+                correctAnswer: "Shows the number and icon in yellow next to driver name"
+            }
         }
     };
 
