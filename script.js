@@ -275,6 +275,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                 correctAnswer: "Shows the number and icon in yellow next to driver name"
             }
+        },
+        'start_time_confirmation': {
+            images: [
+                'assets/images/BO /Start time/1.png',
+                'assets/images/BO /Start time/2.png',
+                'assets/images/BO /Start time/3.png',
+                'assets/images/BO /Start time/4.png'
+            ],
+            quiz: {
+                question: "What is the impotance of Start time confirmation",
+                options: [
+                    "To make sure Driver is operating the block for the booked time",
+                    "To make sure driver start early",
+                    "To make sure API plans a route for driver",
+                    "To make sure Delays are reduced"
+                ],
+                correctAnswer: "To make sure Driver is operating the block for the booked time"
+            }
         }
     };
 
