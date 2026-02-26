@@ -281,7 +281,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/BO /Start time/1.png',
                 'assets/images/BO /Start time/2.png',
                 'assets/images/BO /Start time/3.png',
-                'assets/images/BO /Start time/4.png'
+                'assets/images/BO /Start time/4.png',
+                'assets/images/BO /Start time/5.png'
             ],
             quiz: {
                 question: "What is the impotance of Start time confirmation",
