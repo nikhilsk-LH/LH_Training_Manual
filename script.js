@@ -28,6 +28,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizResult = document.getElementById('quizResult');
     const quizHomeBtn = document.getElementById('quizHomeBtn');
 
+    // Modal
+    const customAlertModal = document.getElementById('customAlertModal');
+    const modalProceedBtn = document.getElementById('modalProceedBtn');
+    const modalBackBtn = document.getElementById('modalBackBtn');
+
     // --- State Variables ---
     const logsSubCategories = [
         { title: 'Driver cancellation', icon: '🚫', id: 'driver_cancel' },
@@ -349,6 +354,7 @@ document.addEventListener('DOMContentLoaded', () => {
         driverCancellationView.classList.add('hidden');
         quizView.classList.add('hidden');
         searchResultsContainer.classList.add('hidden');
+        customAlertModal.classList.add('hidden');
     }
 
     function showMainHome() {
@@ -367,10 +373,22 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (category === 'LOGS') {
                 showCategoryView('LOGS', logsSubCategories);
                 navigationStack.push({ view: 'home' }); // Stack home before entering LOGS
+            } else if (category === 'FinalQuiz') {
+                customAlertModal.classList.remove('hidden');
             } else {
                 alert('Feature coming soon!');
             }
         });
+    });
+
+    // --- Modal Logic ---
+    modalBackBtn.addEventListener('click', () => {
+        customAlertModal.classList.add('hidden');
+    });
+
+    modalProceedBtn.addEventListener('click', () => {
+        customAlertModal.classList.add('hidden');
+        alert("Final Quiz starting soon!"); // Placeholder for actual quick start
     });
 
     // --- Category View Logic ---

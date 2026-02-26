@@ -58,6 +58,14 @@
                     <p>General Templates</p>
                 </div>
             </div>
+
+            <div class="card" data-category="FinalQuiz">
+                <div class="icon">🎓</div>
+                <h2>Final Quiz</h2>
+                <div class="card-content">
+                    <p>Test your knowledge</p>
+                </div>
+            </div>
         </div>
 
         <div id="categoryView" class="hidden">
@@ -102,6 +110,18 @@
 
         <div id="searchResults" class="search-results hidden">
             <!-- Search results will appear here dynamically -->
+        </div>
+
+        <!-- Custom Alert Modal for Final Quiz -->
+        <div id="customAlertModal" class="modal hidden">
+            <div class="modal-content">
+                <h2>Final Quiz</h2>
+                <p>Please make sure to complete all the sessions before taking the Final Quiz.</p>
+                <div class="modal-actions">
+                    <button id="modalProceedBtn" class="action-btn">Proceed</button>
+                    <button id="modalBackBtn" class="back-btn" style="margin-bottom: 0;">Go back to training</button>
+                </div>
+            </div>
         </div>
 
     </main>
