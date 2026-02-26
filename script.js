@@ -53,6 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
             { title: 'Driver FeedBack', icon: '💬', id: 'driver_feedback' },
             { title: 'First slot feedback', icon: '1️⃣', id: 'first_slot_feedback' },
             { title: 'Product feedbacks', icon: '📝', id: 'product_feedback' }
+        ],
+        'lh_backoffice': [
+            { title: 'Start time confirmaion', icon: '✅', id: 'start_time_confirmation' },
+            { title: 'Rescheduling tasks', icon: '📆', id: 'rescheduling_tasks' },
+            { title: 'Facility Tasks', icon: '🏢', id: 'facility_tasks' },
+            { title: 'Address Updates', icon: '📍', id: 'address_updates' },
+            { title: 'Looker Studio', icon: '📊', id: 'looker_studio' },
+            { title: 'Backoffice features', icon: '⚙️', id: 'backoffice_features' }
         ]
     };
 
