@@ -328,23 +328,28 @@ h2 {
     font-weight: 600;
     font-size: 1.1rem;
 }
+
 /* Main Home page specific layout */
 #home-cards {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* flexible columns adapted for 5 cards */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
     width: 100%;
-    max-width: 1000px;
+    max-width: 1200px;
 }
 
 #home-cards .card {
-    min-height: 180px; /* Slightly smaller than sub-pages */
+    min-height: 180px;
+    /* Slightly smaller than sub-pages */
     padding: 1.5rem;
+    flex: 0 1 260px;
 }
 
 /* Responsive adjustment for very small screens */
 @media (max-width: 768px) {
-    #home-cards {
-        grid-template-columns: repeat(2, 1fr);
+    #home-cards .card {
+        flex: 1 1 calc(50% - 1.5rem);
     }
 }
 
@@ -355,7 +360,8 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -393,13 +399,22 @@ h2 {
     margin-top: 1rem;
 }
 
-/* Overriding back button styling inside the yellow modal to stand out */
+.modal-actions .action-btn,
 .modal-actions .back-btn {
-    border-color: #333;
-    color: #333;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0;
 }
 
+.modal-actions .action-btn:hover,
 .modal-actions .back-btn:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Slight dark cover instead of white */
-    color: #000;
+    background-color: #008be5;
+    color: white;
 }
