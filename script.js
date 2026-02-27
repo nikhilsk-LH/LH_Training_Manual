@@ -321,6 +321,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                 correctAnswer: "Check if the new addrress falls for the assigned Facility"
             }
+        },
+        'looker_studio': {
+            images: [
+                'assets/images/BO /Looker/1.png',
+                'assets/images/BO /Looker/2.png',
+                'assets/images/BO /Looker/3.png',
+                'assets/images/BO /Looker/4.png'
+            ],
+            quiz: {
+                question: "IF a facility has hit capacty , what needs to be done",
+                options: [
+                    "Inform leads to close the market",
+                    "Check if tasks can be moved to other FAC",
+                    "Take addtional driver",
+                    "Inform POPS team to inform Facility"
+                ],
+                correctAnswer: "Check if tasks can be moved to other FAC"
+            }
         }
     };
 
