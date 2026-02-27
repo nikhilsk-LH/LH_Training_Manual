@@ -299,6 +299,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                 correctAnswer: "To make sure Driver is operating the block for the booked time"
             }
+        },
+        'address_updates': {
+            images: [
+                'assets/images/BO /Address/1.png',
+                'assets/images/BO /Address/2.png',
+                'assets/images/BO /Address/3.png',
+                'assets/images/BO /Address/4.png',
+                'assets/images/BO /Address/5.png',
+                'assets/images/BO /Address/6.png',
+                'assets/images/BO /Address/7.png',
+                'assets/images/BO /Address/8.png'
+            ],
+            quiz: {
+                question: "What to do if the new address is served by Separate Facility",
+                options: [
+                    "Update the address and reply on Slack",
+                    "Check if the new addrress falls for the assigned Facility",
+                    "Convince the driver for a special driver for delivery",
+                    "Check with customer for a different address"
+                ],
+                correctAnswer: "Check if the new addrress falls for the assigned Facility"
+            }
         }
     };
 
