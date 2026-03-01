@@ -396,6 +396,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/BO /FAC tasks/5.png'
             ],
             quiz: null
+        },
+        'driver_cancellation_thread': {
+            images: [
+                'assets/images/Slack/cancellation/1.png',
+                'assets/images/Slack/cancellation/2.png',
+                'assets/images/Slack/cancellation/3.png',
+                'assets/images/Slack/cancellation/4.png',
+                'assets/images/Slack/cancellation/5.png'
+            ],
+            quiz: null
         }
     };
 
