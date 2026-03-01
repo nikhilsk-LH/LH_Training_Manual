@@ -49,6 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: 'General Etiquette', icon: '🤝', id: 'general_etiquette' }
     ];
 
+    const popsSubCategories = [
+        { title: 'Facility Feedback', icon: '🏭', id: 'facility_feedback' },
+        { title: 'Driver list', icon: '📋', id: 'driver_list' }
+    ];
+
+    const copsSubCategories = [
+        { title: 'Quries', icon: '❓', id: 'cops_queries' },
+        { title: 'Swap orders', icon: '🔁', id: 'swap_orders' },
+        { title: 'Time slots', icon: '⏱️', id: 'time_slots' }
+    ];
+
     const subCategories = {
         'when_i_work': [
             { title: 'Swapping the blocks', icon: '🔄', id: 'swapping_blocks' },
@@ -459,6 +470,12 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (category === 'LOGS') {
                 showCategoryView('LOGS', logsSubCategories);
                 navigationStack.push({ view: 'home' }); // Stack home before entering LOGS
+            } else if (category === 'POPS') {
+                showCategoryView('POPS', popsSubCategories);
+                navigationStack.push({ view: 'home' }); // Stack home before entering POPS
+            } else if (category === 'COPS') {
+                showCategoryView('COPS', copsSubCategories);
+                navigationStack.push({ view: 'home' }); // Stack home before entering COPS
             } else if (category === 'FinalQuiz') {
                 customAlertModal.classList.remove('hidden');
             } else {
