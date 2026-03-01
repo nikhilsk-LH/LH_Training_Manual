@@ -339,6 +339,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 ],
                 correctAnswer: "Check if tasks can be moved to other FAC"
             }
+        },
+        'backoffice_features': {
+            images: [
+                'assets/images/BO /BO feature/1.png',
+                'assets/images/BO /BO feature/2.png',
+                'assets/images/BO /BO feature/3.png',
+                'assets/images/BO /BO feature/4.png',
+                'assets/images/BO /BO feature/5.png',
+                'assets/images/BO /BO feature/6.png',
+                'assets/images/BO /BO feature/7.png',
+                'assets/images/BO /BO feature/8.png',
+                'assets/images/BO /BO feature/9.png',
+                'assets/images/BO /BO feature/10.png',
+                'assets/images/BO /BO feature/11.png',
+                'assets/images/BO /BO feature/12.png',
+                'assets/images/BO /BO feature/13.png',
+                'assets/images/BO /BO feature/14.png',
+                'assets/images/BO /BO feature/15.png'
+            ],
+            quiz: null
         }
     };
 
