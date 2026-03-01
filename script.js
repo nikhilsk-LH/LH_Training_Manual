@@ -369,6 +369,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/BO /Reschedule/5.png'
             ],
             quiz: null
+        },
+        'facility_tasks': {
+            images: [
+                'assets/images/BO /FAC tasks/1.png',
+                'assets/images/BO /FAC tasks/2.png',
+                'assets/images/BO /FAC tasks/3.png',
+                'assets/images/BO /FAC tasks/4.png',
+                'assets/images/BO /FAC tasks/5.png'
+            ],
+            quiz: null
         }
     };
 
