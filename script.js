@@ -66,6 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             { title: 'Address Updates', icon: '📍', id: 'address_updates' },
             { title: 'Looker Studio', icon: '📊', id: 'looker_studio' },
             { title: 'Backoffice features', icon: '⚙️', id: 'backoffice_features' }
+        ],
+        'slack_threads': [
+            { title: 'Driver cancellation', icon: '🚫', id: 'driver_cancellation_thread' },
+            { title: 'Overtilisation', icon: '📈', id: 'overutilisation' },
+            { title: 'Order missing', icon: '❓', id: 'order_missing' },
+            { title: 'Start time checks', icon: '⏰', id: 'start_time_checks' }
         ]
     };
 
