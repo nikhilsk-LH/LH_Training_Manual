@@ -436,6 +436,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/Slack/Order missing/5.png'
             ],
             quiz: null
+        },
+        'facility_feedback': {
+            images: [
+                'assets/images/POPS/feedback/1.png',
+                'assets/images/POPS/feedback/2.png'
+            ],
+            quiz: null
         }
     };
 
