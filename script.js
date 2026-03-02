@@ -443,6 +443,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/POPS/feedback/2.png'
             ],
             quiz: null
+        },
+        'driver_list': {
+            images: [
+                'assets/images/POPS/list/1.png',
+                'assets/images/POPS/list/2.png',
+                'assets/images/POPS/list/3.png',
+                'assets/images/POPS/list/4.png',
+                'assets/images/POPS/list/5.png'
+            ],
+            quiz: null
         }
     };
 
