@@ -416,6 +416,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/Slack/Over utilization thread/5.png'
             ],
             quiz: null
+        },
+        'start_time_checks': {
+            images: [
+                'assets/images/Slack/Start time checking/1.png',
+                'assets/images/Slack/Start time checking/2.png',
+                'assets/images/Slack/Start time checking/3.png',
+                'assets/images/Slack/Start time checking/4.png',
+                'assets/images/Slack/Start time checking/5.png'
+            ],
+            quiz: null
         }
     };
 
