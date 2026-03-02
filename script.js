@@ -475,6 +475,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/COPS/query/2.png'
             ],
             quiz: null
+        },
+        'how_tags_work': {
+            images: [
+                'assets/images/How Tags work/0.png',
+                'assets/images/How Tags work/1.png',
+                'assets/images/How Tags work/2.png',
+                'assets/images/How Tags work/3.png',
+                'assets/images/How Tags work/4.png',
+                'assets/images/How Tags work/5.png',
+                'assets/images/How Tags work/6.png',
+                'assets/images/How Tags work/7.png',
+                'assets/images/How Tags work/8.png',
+                'assets/images/How Tags work/9.png',
+                'assets/images/How Tags work/10.png',
+                'assets/images/How Tags work/11.png',
+                'assets/images/How Tags work/12.png',
+                'assets/images/How Tags work/13.png'
+            ],
+            quiz: null
         }
     };
 
