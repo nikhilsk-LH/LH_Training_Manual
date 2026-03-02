@@ -426,6 +426,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/Slack/Start time checking/5.png'
             ],
             quiz: null
+        },
+        'order_missing': {
+            images: [
+                'assets/images/Slack/Order missing/1.png',
+                'assets/images/Slack/Order missing/2.png',
+                'assets/images/Slack/Order missing/3.png',
+                'assets/images/Slack/Order missing/4.png',
+                'assets/images/Slack/Order missing/5.png'
+            ],
+            quiz: null
         }
     };
 
