@@ -453,6 +453,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/POPS/list/5.png'
             ],
             quiz: null
+        },
+        'time_slots': {
+            images: [
+                'assets/images/COPS/slot/1.png',
+                'assets/images/COPS/slot/2.png',
+                'assets/images/COPS/slot/3.png'
+            ],
+            quiz: null
         }
     };
 
