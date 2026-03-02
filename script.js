@@ -461,6 +461,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/COPS/slot/3.png'
             ],
             quiz: null
+        },
+        'swap_orders': {
+            images: [
+                'assets/images/COPS/swap/1.png',
+                'assets/images/COPS/swap/2.png'
+            ],
+            quiz: null
         }
     };
 
