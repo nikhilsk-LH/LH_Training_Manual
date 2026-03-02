@@ -406,6 +406,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/Slack/cancellation/5.png'
             ],
             quiz: null
+        },
+        'overutilisation': {
+            images: [
+                'assets/images/Slack/Over utilization thread/1.png',
+                'assets/images/Slack/Over utilization thread/2.png',
+                'assets/images/Slack/Over utilization thread/3.png',
+                'assets/images/Slack/Over utilization thread/4.png',
+                'assets/images/Slack/Over utilization thread/5.png'
+            ],
+            quiz: null
         }
     };
 
