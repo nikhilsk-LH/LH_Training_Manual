@@ -468,6 +468,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/COPS/swap/2.png'
             ],
             quiz: null
+        },
+        'cops_queries': {
+            images: [
+                'assets/images/COPS/query/1.png',
+                'assets/images/COPS/query/2.png'
+            ],
+            quiz: null
         }
     };
 
