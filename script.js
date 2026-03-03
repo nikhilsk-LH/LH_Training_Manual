@@ -273,8 +273,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/communication/1.png',
                 'assets/images/communication/2.png',
                 'assets/images/communication/3.png',
-                'assets/images/communication/4.png',
-                'assets/images/communication/5.png'
+                'assets/images/communication/4.png'
+
             ],
             quiz: null
         },
@@ -501,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSlide = 0;
     let maxSlideReached = 0;
     let navigationStack = [];
+    let currentCategoryContext = { title: 'LOGS', items: logsSubCategories };
 
     // --- Mock Data for Global Search ---
     const templates = [
@@ -599,6 +600,8 @@ document.addEventListener('DOMContentLoaded', () => {
         categoryTitle.textContent = title;
         categoryCardsContainer.innerHTML = '';
 
+        currentCategoryContext = { title, items };
+
         items.forEach(item => {
             const card = document.createElement('div');
             card.className = 'card';
@@ -684,7 +687,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     carouselBackButton.addEventListener('click', () => {
-        showCategoryView('LOGS', logsSubCategories);
+        showCategoryView(currentCategoryContext.title, currentCategoryContext.items, true);
     });
 
     markCompleteBtn.addEventListener('click', () => {
@@ -693,7 +696,7 @@ document.addEventListener('DOMContentLoaded', () => {
             showQuizView();
         } else {
             alert("Workflow Completed!");
-            showCategoryView('LOGS', logsSubCategories);
+            showCategoryView(currentCategoryContext.title, currentCategoryContext.items, true);
         }
     });
 
