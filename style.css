@@ -54,43 +54,6 @@ h1 {
     font-weight: 700;
 }
 
-.search-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 1rem 3rem 1rem 1.5rem;
-    border-radius: 50px;
-    border: none;
-    font-size: 1rem;
-    background-color: var(--card-yellow);
-    color: #333;
-    /* Darker text for readability on yellow */
-    outline: none;
-    box-shadow: var(--shadow);
-    transition: box-shadow 0.3s ease;
-}
-
-#searchInput::placeholder {
-    color: #555;
-}
-
-#searchInput:focus {
-    box-shadow: var(--hover-shadow);
-}
-
-.search-icon {
-    position: absolute;
-    right: 1.5rem;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #555;
-    pointer-events: none;
-}
-
 main {
     width: 100%;
     max-width: 1200px;
@@ -148,25 +111,8 @@ h2 {
     color: #555;
 }
 
-/* Search Results Area */
-.search-results {
-    width: 100%;
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
 .hidden {
     display: none !important;
-}
-
-/* Specific styling for search result items if needed */
-.result-item {
-    background-color: white;
-    padding: 1rem;
-    border-radius: 8px;
-    box-shadow: var(--shadow);
 }
 
 /* Back Button Styling */

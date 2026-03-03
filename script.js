@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Element Selectors ---
-    const searchInput = document.getElementById('searchInput');
     const mainCardsContainer = document.querySelector('.cards-container');
-    const searchResultsContainer = document.getElementById('searchResults');
 
     // Category View
     const categoryView = document.getElementById('categoryView');
@@ -507,54 +505,12 @@ document.addEventListener('DOMContentLoaded', () => {
     let maxSlideReached = 0;
     let navigationStack = [];
     let currentCategoryContext = { title: 'LOGS', items: logsSubCategories };
-
-    // --- Mock Data for Global Search ---
-    const templates = [
-        { title: 'Payment Issue', category: 'LOGS', content: 'Customer initiated payment dispute...' },
-        { title: 'Driver Late', category: 'COPS', content: 'Driver is running 15 mins late...' },
-        { title: 'Partner Onboarding', category: 'POPS', content: 'New partner documents checklist...' },
-        { title: 'General Refund', category: 'Template', content: 'Process for general refunds...' }
-    ];
-
-    // --- Search Functionality ---
-    searchInput.addEventListener('input', (e) => {
-        const query = e.target.value.toLowerCase();
-
-        if (query.length > 0) {
-            displayResults(templates.filter(t =>
-                t.title.toLowerCase().includes(query) ||
-                t.content.toLowerCase().includes(query)
-            ));
-            hideAllViews();
-            searchResultsContainer.classList.remove('hidden');
-        } else {
-            searchResultsContainer.classList.add('hidden');
-            mainCardsContainer.classList.remove('hidden'); // Default back to home
-            navigationStack = []; // Reset stack
-        }
-    });
-
-    function displayResults(results) {
-        searchResultsContainer.innerHTML = '';
-        if (results.length === 0) {
-            searchResultsContainer.innerHTML = '<p style="color: white; text-align: center; grid-column: 1/-1;">No templates found.</p>';
-            return;
-        }
-        results.forEach(item => {
-            const card = document.createElement('div');
-            card.className = 'result-item';
-            card.innerHTML = `<h3>${item.title}</h3><span class="badge">${item.category}</span><p>${item.content}</p>`;
-            searchResultsContainer.appendChild(card);
-        });
-    }
-
     // --- Navigation & View Helpers ---
     function hideAllViews() {
         mainCardsContainer.classList.add('hidden');
         categoryView.classList.add('hidden');
         driverCancellationView.classList.add('hidden');
         quizView.classList.add('hidden');
-        searchResultsContainer.classList.add('hidden');
         customAlertModal.classList.add('hidden');
         wrongAnswerModal.classList.add('hidden');
         hintModal.classList.add('hidden');
@@ -563,7 +519,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function showMainHome() {
         hideAllViews();
         mainCardsContainer.classList.remove('hidden');
-        searchInput.value = '';
         navigationStack = []; // Reset stack
     }
 
