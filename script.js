@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBackBtn = document.getElementById('modalBackBtn');
     const wrongAnswerModal = document.getElementById('wrongAnswerModal');
     const redoSessionBtn = document.getElementById('redoSessionBtn');
+    const hintModal = document.getElementById('hintModal');
+    const hintOkBtn = document.getElementById('hintOkBtn');
+    const hintIconBtn = document.getElementById('hintIconBtn');
 
     // --- State Variables ---
     const logsSubCategories = [
@@ -121,12 +124,12 @@ document.addEventListener('DOMContentLoaded', () => {
             quiz: {
                 question: "How to do route reassignment?",
                 options: [
-                    "check with another driver for delivery",
-                    "check if the break down can be fixed for delivery",
-                    "go to logistics tab and do route reassignment there while both drivers are having active task",
-                    "go to logistics tab and do route reassignment there"
+                    "Check with another driver for delivery",
+                    "Check if the break down can be fixed for delivery",
+                    "Go to logistics tab and do route reassignment there while both drivers are having active task",
+                    "Go to logistics tab and do route reassignment there"
                 ],
-                correctAnswer: "go to logistics tab and do route reassignment there"
+                correctAnswer: "Go to logistics tab and do route reassignment there"
             }
         },
         'payment_query': {
@@ -292,9 +295,9 @@ document.addEventListener('DOMContentLoaded', () => {
             quiz: {
                 question: "how will we identify delayed tasks.",
                 options: [
-                    "shows a Grey icon next to driver name",
-                    "shows a Yellow icon next to driver name",
-                    "shows a  Red icon next to driver name",
+                    "Shows a Grey icon next to driver name",
+                    "Shows a Yellow icon next to driver name",
+                    "Shows a  Red icon next to driver name",
                     "Shows the number and icon in yellow next to driver name"
                 ],
                 correctAnswer: "Shows the number and icon in yellow next to driver name"
@@ -554,6 +557,7 @@ document.addEventListener('DOMContentLoaded', () => {
         searchResultsContainer.classList.add('hidden');
         customAlertModal.classList.add('hidden');
         wrongAnswerModal.classList.add('hidden');
+        hintModal.classList.add('hidden');
     }
 
     function showMainHome() {
@@ -712,6 +716,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function renderQuiz() {
+        // Randomly show hint icon (50% chance)
+        if (Math.random() < 0.5) {
+            hintIconBtn.classList.remove('hidden');
+        } else {
+            hintIconBtn.classList.add('hidden');
+        }
+
         const quizData = workflows[currentWorkflowId].quiz;
         quizQuestionEl.textContent = quizData.question;
 
@@ -767,6 +778,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     redoSessionBtn.addEventListener('click', () => {
         wrongAnswerModal.classList.add('hidden');
+        startWorkflow(currentWorkflowId);
+    });
+
+    hintIconBtn.addEventListener('click', () => {
+        hintModal.classList.remove('hidden');
+    });
+
+    hintOkBtn.addEventListener('click', () => {
+        hintModal.classList.add('hidden');
         startWorkflow(currentWorkflowId);
     });
 });
