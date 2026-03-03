@@ -92,6 +92,7 @@
 
         <!-- Quiz View -->
         <div id="quizView" class="hidden">
+            <button id="quizTopBackBtn" class="back-btn hidden">← Back to Category</button>
             <div class="quiz-container">
                 <h2>Quick Quiz</h2>
                 <p class="question">What is the 1st step in driver cancellation?</p>
@@ -103,8 +104,6 @@
                 </div>
                 <button id="submitQuizBtn" class="action-btn hidden" style="margin-top: 1rem;">Submit</button>
                 <div id="quizResult" class="hidden"></div>
-                <button id="quizHomeBtn" class="back-btn hidden" style="margin-top: 1rem; align-self: center;">Back to
-                    Home</button>
             </div>
         </div>
 
@@ -120,6 +119,17 @@
                 <div class="modal-actions">
                     <button id="modalProceedBtn" class="action-btn">Proceed</button>
                     <button id="modalBackBtn" class="back-btn" style="margin-bottom: 0;">Go back to training</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wrong Answer Alert Modal -->
+        <div id="wrongAnswerModal" class="modal hidden">
+            <div class="modal-content">
+                <h2 style="color: #00A4FF;">Wrong Answer</h2>
+                <p>That is incorrect. Please redo the session and try again.</p>
+                <div class="modal-actions" style="justify-content: center;">
+                    <button id="redoSessionBtn" class="action-btn">Redo the session</button>
                 </div>
             </div>
         </div>

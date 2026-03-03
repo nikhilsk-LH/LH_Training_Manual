@@ -26,12 +26,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizOptionsContainer = quizContainer.querySelector('.options');
     const submitQuizBtn = document.getElementById('submitQuizBtn');
     const quizResult = document.getElementById('quizResult');
-    const quizHomeBtn = document.getElementById('quizHomeBtn');
+    const quizTopBackBtn = document.getElementById('quizTopBackBtn');
 
     // Modal
     const customAlertModal = document.getElementById('customAlertModal');
     const modalProceedBtn = document.getElementById('modalProceedBtn');
     const modalBackBtn = document.getElementById('modalBackBtn');
+    const wrongAnswerModal = document.getElementById('wrongAnswerModal');
+    const redoSessionBtn = document.getElementById('redoSessionBtn');
 
     // --- State Variables ---
     const logsSubCategories = [
@@ -551,6 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
         quizView.classList.add('hidden');
         searchResultsContainer.classList.add('hidden');
         customAlertModal.classList.add('hidden');
+        wrongAnswerModal.classList.add('hidden');
     }
 
     function showMainHome() {
@@ -733,7 +736,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetQuiz() {
         submitQuizBtn.classList.add('hidden');
         quizResult.classList.add('hidden');
-        quizHomeBtn.classList.add('hidden');
+        quizTopBackBtn.classList.add('hidden');
         quizResult.textContent = '';
     }
 
@@ -748,16 +751,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Validation logic
         if (answerText === correctAnswer) {
+            quizResult.classList.remove('hidden');
             quizResult.textContent = '✅ Correct!';
             quizResult.style.color = 'green';
+            submitQuizBtn.classList.add('hidden');
+            quizTopBackBtn.classList.remove('hidden');
         } else {
-            quizResult.textContent = '❌ Incorrect. Please try again.';
-            quizResult.style.color = 'red';
+            wrongAnswerModal.classList.remove('hidden');
         }
-
-        submitQuizBtn.classList.add('hidden');
-        quizHomeBtn.classList.remove('hidden');
     });
 
-    quizHomeBtn.addEventListener('click', showMainHome);
+    quizTopBackBtn.addEventListener('click', () => {
+        showCategoryView(currentCategoryContext.title, currentCategoryContext.items, true);
+    });
+
+    redoSessionBtn.addEventListener('click', () => {
+        wrongAnswerModal.classList.add('hidden');
+        startWorkflow(currentWorkflowId);
+    });
 });
