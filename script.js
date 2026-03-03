@@ -606,6 +606,14 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSlide = 0;
         maxSlideReached = 0;
 
+        // Preload all images for this workflow
+        if (workflow.images && workflow.images.length > 0) {
+            workflow.images.forEach(imgSrc => {
+                const img = new Image();
+                img.src = imgSrc;
+            });
+        }
+
         updateCarousel();
     }
 
