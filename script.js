@@ -40,23 +40,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- State Variables ---
     const logsSubCategories = [
-        { title: 'Driver cancellation', icon: '🚫', id: 'driver_cancel' },
-        { title: 'Vehicle breakdown', icon: '🔧', id: 'vehicle_breakdown' },
-        { title: 'Payment Queries', icon: '�', id: 'payment_query' },
-        { title: 'When i Work', icon: '📅', id: 'when_i_work' },
+        { title: 'Communication', icon: '�️', id: 'communication' },
+        { title: 'Driver cancellation', icon: '�', id: 'driver_cancel' },
+        { title: 'Driver Mapping', icon: '�️', id: 'driver_mapping' },
         { title: 'Feedbacks', icon: '💬', id: 'feedbacks' },
-        { title: 'Driver Mapping', icon: '🗺️', id: 'driver_mapping' },
-        { title: 'Fleet Dashboard', icon: '�', id: 'fleet_dashboard' },
+        { title: 'Fleet Dashboard', icon: '', id: 'fleet_dashboard' },
+        { title: 'General Etiquette', icon: '🤝', id: 'general_etiquette' },
         { title: 'How Tags work', icon: '🏷️', id: 'how_tags_work' },
         { title: 'LH BackOffice', icon: '🏢', id: 'lh_backoffice' },
+        { title: 'Payment Queries', icon: '', id: 'payment_query' },
         { title: 'Slack & Threads', icon: '#️⃣', id: 'slack_threads' },
-        { title: 'Communication', icon: '🗣️', id: 'communication' },
-        { title: 'General Etiquette', icon: '🤝', id: 'general_etiquette' }
+        { title: 'Vehicle breakdown', icon: '�', id: 'vehicle_breakdown' },
+        { title: 'When i Work', icon: '📅', id: 'when_i_work' }
     ];
 
     const popsSubCategories = [
-        { title: 'Facility Feedback', icon: '🏭', id: 'facility_feedback' },
-        { title: 'Driver list', icon: '📋', id: 'driver_list' }
+        { title: 'Driver list', icon: '📋', id: 'driver_list' },
+        { title: 'Facility Feedback', icon: '🏭', id: 'facility_feedback' }
     ];
 
     const copsSubCategories = [
