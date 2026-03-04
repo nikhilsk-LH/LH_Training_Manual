@@ -540,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (category === 'FinalQuiz') {
                 customAlertModal.classList.remove('hidden');
             } else if (category === 'DiveInDepth') {
-                window.open('https://eu4-daily-operations-le0880a.gamma.site/', '_blank');
+                window.location.href = 'https://eu4-daily-operations-le0880a.gamma.site/';
             } else {
                 alert('Feature coming soon!');
             }
