@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/Fleet dashboard/6.png'
             ],
             quiz: {
-                question: "how will we identify delayed tasks.",
+                question: "How will we identify delayed tasks.",
                 options: [
                     "Shows a Grey icon next to driver name",
                     "Shows a Yellow icon next to driver name",
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/BO /Start time/5.png'
             ],
             quiz: {
-                question: "What is the impotance of Start time confirmation",
+                question: "What is the importance of Start time confirmation",
                 options: [
                     "To make sure Driver is operating the block for the booked time",
                     "To make sure driver start early",
@@ -350,11 +350,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 'assets/images/BO /Looker/4.png'
             ],
             quiz: {
-                question: "IF a facility has hit capacty , what needs to be done",
+                question: "IF a facility has hit capacity , what needs to be done",
                 options: [
                     "Inform leads to close the market",
                     "Check if tasks can be moved to other FAC",
-                    "Take addtional driver",
+                    "Take additional driver",
                     "Inform POPS team to inform Facility"
                 ],
                 correctAnswer: "Check if tasks can be moved to other FAC"
@@ -459,23 +459,23 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'time_slots': {
             images: [
-                'assets/images/COPS/slot/1.png',
-                'assets/images/COPS/slot/2.png',
-                'assets/images/COPS/slot/3.png'
+                'assets/images/Cops/slot/1.png',
+                'assets/images/Cops/slot/2.png',
+                'assets/images/Cops/slot/3.png'
             ],
             quiz: null
         },
         'swap_orders': {
             images: [
-                'assets/images/COPS/swap/1.png',
-                'assets/images/COPS/swap/2.png'
+                'assets/images/Cops/swap/1.png',
+                'assets/images/Cops/swap/2.png'
             ],
             quiz: null
         },
         'cops_queries': {
             images: [
-                'assets/images/COPS/query/1.png',
-                'assets/images/COPS/query/2.png'
+                'assets/images/Cops/query/1.png',
+                'assets/images/Cops/query/2.png'
             ],
             quiz: null
         },
