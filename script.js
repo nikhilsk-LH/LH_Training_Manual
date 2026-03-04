@@ -539,6 +539,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 navigationStack.push({ view: 'home' }); // Stack home before entering COPS
             } else if (category === 'FinalQuiz') {
                 customAlertModal.classList.remove('hidden');
+            } else if (category === 'DiveInDepth') {
+                window.open('https://eu4-daily-operations-le0880a.gamma.site/', '_blank');
             } else {
                 alert('Feature coming soon!');
             }
