@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laundryheap - Training Manual</title>
-    <link rel="stylesheet" href="style.css?v=1.3">
+    <link rel="stylesheet" href="style.css?v=1.2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -62,14 +62,6 @@
                     <p>Test your knowledge</p>
                 </div>
             </div>
-
-            <div class="card" data-category="DiveInDepth">
-                <div class="icon">🤿</div>
-                <h2>Dive In-Depth</h2>
-                <div class="card-content">
-                    <p>Dive in-depth process training</p>
-                </div>
-            </div>
         </div>
 
         <div id="categoryView" class="hidden">
@@ -113,6 +105,39 @@
             </div>
         </div>
 
+        <!-- Final Quiz View -->
+        <div id="finalQuizView" class="hidden">
+            <button id="finalQuizHomeBtn" class="back-btn hidden">← Back to Home</button>
+            <div class="quiz-container final-quiz-anim">
+                <h2>Final Quiz</h2>
+                <div class="progress-container"
+                    style="width: 100%; background-color: #f1f3f5; border-radius: 8px; margin-bottom: 0.5rem; height: 10px; overflow: hidden;">
+                    <div id="finalQuizProgress" class="progress-bar"
+                        style="height: 100%; background-color: #00A4FF; width: 0%; transition: width 0.3s ease;"></div>
+                </div>
+                <p id="finalQuizProgressText"
+                    style="text-align: right; font-size: 0.85rem; color: #666; margin-bottom: 1.5rem;">Question 1 / 15
+                </p>
+                <div id="finalQuizCard" class="fade-in">
+                    <p id="finalQuizQuestion" class="question">Loading question...</p>
+                    <div id="finalQuizOptions" class="options">
+                        <!-- Options injected by JS -->
+                    </div>
+                    <button id="finalQuizNextBtn" class="action-btn hidden"
+                        style="margin-top: 1.5rem; width: 100%;">Next</button>
+                    <button id="finalQuizSubmitBtn" class="action-btn hidden"
+                        style="margin-top: 1.5rem; width: 100%;">Submit Final Answer</button>
+                </div>
+                <div id="finalQuizResultArea" class="hidden fade-in"
+                    style="margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <div style="font-size: 4rem;">🏆</div>
+                    <h3 id="finalQuizScore" style="color: #00A4FF; font-size: 2rem; margin: 0;"></h3>
+                    <p id="finalQuizMessage" style="font-size: 1.1rem; color: #444; margin-bottom: 1rem;"></p>
+                    <button id="finalQuizRestartBtn" class="action-btn">Retake Quiz</button>
+                </div>
+            </div>
+        </div>
+
         <!-- Custom Alert Modal for Final Quiz -->
         <div id="customAlertModal" class="modal hidden">
             <div class="modal-content">
@@ -150,7 +175,7 @@
 
     </main>
 
-    <script src="script.js?v=1.3"></script>
+    <script src="script.js?v=1.2"></script>
 </body>
 
 </html>

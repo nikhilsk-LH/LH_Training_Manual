@@ -364,3 +364,54 @@ h2 {
     background-color: #008be5;
     color: white;
 }
+
+/* Final Quiz Animations & Styles */
+.final-quiz-anim {
+    animation: slideUpFade 0.4s ease forwards;
+}
+
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Selected option states for both quizzes */
+.option-btn.selected {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border-color: var(--primary-blue);
+    box-shadow: 0 4px 6px rgba(0, 164, 255, 0.3);
+}
+
+.option-btn.correct {
+    background-color: #28a745;
+    color: var(--white);
+    border-color: #28a745;
+}
+
+.option-btn.wrong {
+    background-color: #dc3545;
+    color: var(--white);
+    border-color: #dc3545;
+}

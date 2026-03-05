@@ -36,6 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const hintOkBtn = document.getElementById('hintOkBtn');
     const hintIconBtn = document.getElementById('hintIconBtn');
 
+    // Final Quiz
+    const finalQuizView = document.getElementById('finalQuizView');
+    const finalQuizHomeBtn = document.getElementById('finalQuizHomeBtn');
+    const finalQuizProgress = document.getElementById('finalQuizProgress');
+    const finalQuizProgressText = document.getElementById('finalQuizProgressText');
+    const finalQuizQuestion = document.getElementById('finalQuizQuestion');
+    const finalQuizOptions = document.getElementById('finalQuizOptions');
+    const finalQuizNextBtn = document.getElementById('finalQuizNextBtn');
+    const finalQuizSubmitBtn = document.getElementById('finalQuizSubmitBtn');
+    const finalQuizResultArea = document.getElementById('finalQuizResultArea');
+    const finalQuizScore = document.getElementById('finalQuizScore');
+    const finalQuizMessage = document.getElementById('finalQuizMessage');
+    const finalQuizRestartBtn = document.getElementById('finalQuizRestartBtn');
+    const finalQuizCard = document.getElementById('finalQuizCard');
+
     // --- State Variables ---
     const logsSubCategories = [
         { title: 'Communication', icon: '🗣️', id: 'communication' },
@@ -514,6 +529,7 @@ document.addEventListener('DOMContentLoaded', () => {
         customAlertModal.classList.add('hidden');
         wrongAnswerModal.classList.add('hidden');
         hintModal.classList.add('hidden');
+        finalQuizView.classList.add('hidden');
     }
 
     function showMainHome() {
@@ -539,8 +555,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 navigationStack.push({ view: 'home' }); // Stack home before entering COPS
             } else if (category === 'FinalQuiz') {
                 customAlertModal.classList.remove('hidden');
-            } else if (category === 'DiveInDepth') {
-                window.location.href = 'https://eu4-daily-operations-le0880a.gamma.site/';
             } else {
                 alert('Feature coming soon!');
             }
@@ -554,7 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     modalProceedBtn.addEventListener('click', () => {
         customAlertModal.classList.add('hidden');
-        alert("Final Quiz starting soon!"); // Placeholder for actual quick start
+        startFinalQuiz();
     });
 
     // --- Category View Logic ---
@@ -753,5 +767,227 @@ document.addEventListener('DOMContentLoaded', () => {
     hintOkBtn.addEventListener('click', () => {
         hintModal.classList.add('hidden');
         startWorkflow(currentWorkflowId);
+    });
+
+    // --- Final Quiz Data & Logic ---
+    const finalQuizQuestions = [
+        {
+            question: "1. While logging in for the day, what is the 1st thing to be done?",
+            options: ["Check for drivers", "Update Log in on Slack Channel", "Reply to pending threads", "Plan the routes"],
+            correctAnswerIndex: 1
+        },
+        {
+            question: "2. What is the mail id for Fleet team?",
+            options: ["scout@laundyheap.com", "scout@laundryheap.uk", "scout@laundryheap.com", "Scout@laundryheap.com"],
+            correctAnswerIndex: 2
+        },
+        {
+            question: "3. When is a block published on When I Work?",
+            options: ["When a driver cancels", "When a driver approaches for a block", "When there is a requirement", "To get more orders"],
+            correctAnswerIndex: 2
+        },
+        {
+            question: "4. What is the importance of Start time confirmation?",
+            options: ["To make sure Driver is operating the block for the booked time.", "To make sure driver start early", "To make sure API plans a route for driver", "To make sure Delays are reduced"],
+            correctAnswerIndex: 0
+        },
+        {
+            question: "5. What needs to be done if a driver behaves inappropriately?",
+            options: ["Raise Feedback to Fleet team with evidence", "Cancel his slot", "Tell the driver to Quit the platform", "Call the driver"],
+            correctAnswerIndex: 0
+        },
+        {
+            question: "6. How to identify a delay on LMFS",
+            options: ["Yellow icon next to driver", "Grey icon next to driver", "Number with yellow icon next to driver", "Red icon next to driver"],
+            correctAnswerIndex: 2
+        },
+        {
+            question: "7. If a facility has hit capacity , what needs to be done?",
+            options: ["Inform leads to close the market", "Check if tasks can be moved to other FAC", "Take additional driver", "Inform POPS team to inform Facility about the surge."],
+            correctAnswerIndex: 1
+        },
+        {
+            question: "8. How to check if the test slot is a good fit to the platform?",
+            options: ["By calling and understanding the driver", "If he is slow on the route", "Monitor punctuality, pace and photos taken", "If he is asking less fee compared to other drivers"],
+            correctAnswerIndex: 2
+        },
+        {
+            question: "9. What is LMFS?",
+            options: ["Last Mile Fleet System", "Localised Mile Fleet Services", "Last Movement Freight System", "Last Mile Fleet Solution"],
+            correctAnswerIndex: 3
+        },
+        {
+            question: "10. What needs to be done when a last minute cancellation happens?",
+            options: ["Split the route with other drivers", "Try to find the replacement if it’s busy", "Request leads to close the region", "Choose an option depending on the market situation"],
+            correctAnswerIndex: 3
+        },
+        {
+            question: "11. While rescheduling the orders, how do you decide the new time slot?",
+            options: ["Assign the first time slot seen on the backend.", "Check the task location and assign a slot", "Consider the days business and assign a suitable slot", "Check with COPS"],
+            correctAnswerIndex: 1
+        },
+        {
+            question: "12. What is the important point in Route Reassignment?",
+            options: ["Should be only done by Leads", "Driver should not have active tasks", "Route Reassignment should be done on LMFS", "All of the above"],
+            correctAnswerIndex: 1
+        },
+        {
+            question: "13. For System, what is the important data in a TAG?",
+            options: ["Order ID", "Customer name", "QR - ID", "Barcode"],
+            correctAnswerIndex: 2
+        },
+        {
+            question: "14. Why Feedbacks are raised for Product planning issues?",
+            options: ["To increase workload of Product team", "To remove the bugs of product", "To improve planning logic", "To improve Customer Experience"],
+            correctAnswerIndex: 2
+        },
+        {
+            question: "15. Where do we publish slots?",
+            options: ["Slack", "WhatsApp", "When I Work", "LMFS"],
+            correctAnswerIndex: 2
+        }
+    ];
+
+    let finalQuizCurrentQuestionIndex = 0;
+    let finalQuizScoreCount = 0;
+    let finalQuizSelectedOptionIndex = null;
+
+    // Assuming hideAllViews() exists elsewhere in the full script
+    // Adding the required line to hideAllViews()
+    // function hideAllViews() {
+    //     homeView.classList.add('hidden');
+    //     categoryView.classList.add('hidden');
+    //     driverCancellationView.classList.add('hidden');
+    //     quizView.classList.add('hidden');
+    //     finalQuizView.classList.add('hidden'); // Added this line
+    // }
+
+    function startFinalQuiz() {
+        hideAllViews();
+        finalQuizView.classList.remove('hidden');
+        finalQuizHomeBtn.classList.remove('hidden');
+        finalQuizCard.classList.remove('hidden');
+        finalQuizResultArea.classList.add('hidden');
+
+        finalQuizCurrentQuestionIndex = 0;
+        finalQuizScoreCount = 0;
+
+        loadFinalQuizQuestion();
+    }
+
+    function loadFinalQuizQuestion() {
+        const questionData = finalQuizQuestions[finalQuizCurrentQuestionIndex];
+        finalQuizSelectedOptionIndex = null;
+
+        // Reset animations
+        finalQuizCard.classList.remove('fade-in');
+        void finalQuizCard.offsetWidth; // trigger reflow
+        finalQuizCard.classList.add('fade-in');
+
+        // Update Progress
+        finalQuizProgressText.textContent = `Question ${finalQuizCurrentQuestionIndex + 1} / ${finalQuizQuestions.length}`;
+        const progressPercentage = ((finalQuizCurrentQuestionIndex) / finalQuizQuestions.length) * 100;
+        finalQuizProgress.style.width = `${progressPercentage}%`;
+
+        // Update Text
+        finalQuizQuestion.textContent = questionData.question;
+        finalQuizOptions.innerHTML = '';
+        finalQuizNextBtn.classList.add('hidden');
+        finalQuizSubmitBtn.classList.add('hidden');
+
+        questionData.options.forEach((option, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option-btn';
+            btn.textContent = option;
+            btn.addEventListener('click', () => handleFinalQuizOptionSelect(index, btn));
+            finalQuizOptions.appendChild(btn);
+        });
+    }
+
+    function handleFinalQuizOptionSelect(index, selectedBtn) {
+        // Clear previous selections visually
+        const previouslySelected = finalQuizOptions.querySelector('.option-btn.selected');
+        if (previouslySelected) {
+            previouslySelected.classList.remove('selected');
+        }
+
+        selectedBtn.classList.add('selected');
+        finalQuizSelectedOptionIndex = index;
+
+        // Show contextually Next or Submit button
+        if (finalQuizCurrentQuestionIndex === finalQuizQuestions.length - 1) {
+            finalQuizSubmitBtn.classList.remove('hidden');
+            finalQuizNextBtn.classList.add('hidden');
+        } else {
+            finalQuizNextBtn.classList.remove('hidden');
+            finalQuizSubmitBtn.classList.add('hidden');
+        }
+    }
+
+    function processFinalQuizAnswer() {
+        if (finalQuizSelectedOptionIndex === null) return;
+
+        const questionData = finalQuizQuestions[finalQuizCurrentQuestionIndex];
+        const buttons = finalQuizOptions.querySelectorAll('.option-btn');
+
+        // Disable all buttons to prevent double-clicking
+        buttons.forEach(btn => btn.disabled = true);
+        finalQuizNextBtn.disabled = true;
+        finalQuizSubmitBtn.disabled = true;
+
+        if (finalQuizSelectedOptionIndex === questionData.correctAnswerIndex) {
+            finalQuizScoreCount++;
+            buttons[finalQuizSelectedOptionIndex].classList.add('correct');
+        } else {
+            buttons[finalQuizSelectedOptionIndex].classList.add('wrong');
+            buttons[questionData.correctAnswerIndex].classList.add('correct');
+        }
+
+        // Wait a beat so they can see what they got wrong, then advance automatically
+        setTimeout(() => {
+            buttons.forEach(btn => btn.disabled = false); // Re-enable for next question
+            finalQuizNextBtn.disabled = false;
+            finalQuizSubmitBtn.disabled = false;
+
+            finalQuizCurrentQuestionIndex++;
+            if (finalQuizCurrentQuestionIndex < finalQuizQuestions.length) {
+                loadFinalQuizQuestion();
+            } else {
+                showFinalQuizResult();
+            }
+        }, 1200);
+    }
+
+    finalQuizNextBtn.addEventListener('click', processFinalQuizAnswer);
+    finalQuizSubmitBtn.addEventListener('click', processFinalQuizAnswer);
+
+    function showFinalQuizResult() {
+        finalQuizCard.classList.add('hidden');
+        finalQuizHomeBtn.classList.remove('hidden');
+        finalQuizResultArea.classList.remove('hidden');
+        finalQuizProgress.style.width = '100%';
+
+        const passMark = Math.ceil(finalQuizQuestions.length * 0.8); // 80% to pass
+        const passed = finalQuizScoreCount >= passMark;
+
+        finalQuizScore.textContent = `${finalQuizScoreCount} / ${finalQuizQuestions.length}`;
+
+        if (passed) {
+            finalQuizMessage.textContent = "Excellent work! You have successfully completed the training manual.";
+            finalQuizMessage.style.color = "#28a745";
+            finalQuizResultArea.querySelector('div').textContent = '🏆';
+        } else {
+            finalQuizMessage.textContent = "Good try, but you need to refresh your knowledge. Please review the manual and try again.";
+            finalQuizMessage.style.color = "#dc3545";
+            finalQuizResultArea.querySelector('div').textContent = '📚';
+        }
+    }
+
+    finalQuizRestartBtn.addEventListener('click', () => {
+        startFinalQuiz();
+    });
+
+    finalQuizHomeBtn.addEventListener('click', () => {
+        showMainHome();
     });
 });
