@@ -986,18 +986,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function submitToGoogleForms(name, score, responses) {
-        // REPLACE this URL with your actual Google Form 'formResponse' URL
-        const formURL = 'https://docs.google.com/forms/d/e/PASTE_YOUR_FORM_ID_HERE/formResponse';
+        const formURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScEMSH7bIZ01zUaFnAKLwD3Xvs3E02ksB_QizaCEb4mi4p1KA/formResponse';
 
-        // REPLACE these 3 IDs with the entry IDs you found in step 3 of the guide
-        const nameEntryID = 'entry.111111111';
-        const scoreEntryID = 'entry.222222222';
-        const totalEntryID = 'entry.333333333';
+        const nameEntryID = 'entry.140151157';
+        const scoreEntryID = 'entry.286756535';
+        const totalEntryID = 'entry.1147528875';
+        const responsesEntryID = 'entry.950717047';
 
         const formData = new FormData();
         formData.append(nameEntryID, name);
         formData.append(scoreEntryID, score);
         formData.append(totalEntryID, finalQuizQuestions.length);
+
+        // Convert responses array to a readable string format
+        const responsesText = responses.length > 0 ? JSON.stringify(responses) : "Completed Quiz";
+        formData.append(responsesEntryID, responsesText);
 
         console.log("Submitting directly to Google Forms...");
 
