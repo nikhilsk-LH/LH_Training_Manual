@@ -50,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const finalQuizMessage = document.getElementById('finalQuizMessage');
     const finalQuizRestartBtn = document.getElementById('finalQuizRestartBtn');
     const finalQuizCard = document.getElementById('finalQuizCard');
+    const finalQuizUserNameInput = document.getElementById('finalQuizUserName');
 
     // --- State Variables ---
     const logsSubCategories = [
@@ -567,8 +568,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     modalProceedBtn.addEventListener('click', () => {
+        const userName = finalQuizUserNameInput.value.trim();
+        if (!userName) {
+            alert('Please enter your name or email to proceed.');
+            return;
+        }
         customAlertModal.classList.add('hidden');
-        startFinalQuiz();
+        startFinalQuiz(userName);
     });
 
     // --- Category View Logic ---
@@ -851,6 +857,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let finalQuizCurrentQuestionIndex = 0;
     let finalQuizScoreCount = 0;
     let finalQuizSelectedOptionIndex = null;
+    let finalQuizUserName = "";
+    let finalQuizUserResponses = [];
 
     // Assuming hideAllViews() exists elsewhere in the full script
     // Adding the required line to hideAllViews()
@@ -862,7 +870,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //     finalQuizView.classList.add('hidden'); // Added this line
     // }
 
-    function startFinalQuiz() {
+    function startFinalQuiz(userName) {
+        finalQuizUserName = userName;
+        finalQuizUserResponses = [];
         hideAllViews();
         finalQuizView.classList.remove('hidden');
         finalQuizHomeBtn.classList.remove('hidden');
@@ -937,25 +947,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (finalQuizSelectedOptionIndex === questionData.correctAnswerIndex) {
             finalQuizScoreCount++;
-            buttons[finalQuizSelectedOptionIndex].classList.add('correct');
-        } else {
-            buttons[finalQuizSelectedOptionIndex].classList.add('wrong');
-            buttons[questionData.correctAnswerIndex].classList.add('correct');
         }
 
-        // Wait a beat so they can see what they got wrong, then advance automatically
-        setTimeout(() => {
-            buttons.forEach(btn => btn.disabled = false); // Re-enable for next question
-            finalQuizNextBtn.disabled = false;
-            finalQuizSubmitBtn.disabled = false;
-
-            finalQuizCurrentQuestionIndex++;
-            if (finalQuizCurrentQuestionIndex < finalQuizQuestions.length) {
-                loadFinalQuizQuestion();
-            } else {
-                showFinalQuizResult();
-            }
-        }, 1200);
+        // Advance immediately without showing correct/wrong feedback
+        finalQuizCurrentQuestionIndex++;
+        if (finalQuizCurrentQuestionIndex < finalQuizQuestions.length) {
+            loadFinalQuizQuestion();
+        } else {
+            showFinalQuizResult();
+        }
     }
 
     finalQuizNextBtn.addEventListener('click', processFinalQuizAnswer);
@@ -973,18 +973,50 @@ document.addEventListener('DOMContentLoaded', () => {
         finalQuizScore.textContent = `${finalQuizScoreCount} / ${finalQuizQuestions.length}`;
 
         if (passed) {
-            finalQuizMessage.textContent = "Excellent work! You have successfully completed the training manual.";
+            finalQuizMessage.textContent = "Excellent work! Your submission has been recorded.";
             finalQuizMessage.style.color = "#28a745";
-            finalQuizResultArea.querySelector('div').textContent = '🏆';
+            finalQuizResultArea.querySelector('div').textContent = '✅';
         } else {
-            finalQuizMessage.textContent = "Good try, but you need to refresh your knowledge. Please review the manual and try again.";
+            finalQuizMessage.textContent = "Your submission has been recorded. Good try, but you need to refresh your knowledge.";
             finalQuizMessage.style.color = "#dc3545";
             finalQuizResultArea.querySelector('div').textContent = '📚';
         }
+
+        submitToGoogleSheets(finalQuizUserName, finalQuizScoreCount, finalQuizUserResponses);
+    }
+
+    function submitToGoogleSheets(name, score, responses) {
+        // REPLACE this URL with your actual Google Apps Script Web App URL
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+
+        const payload = {
+            name: name,
+            score: score,
+            total: finalQuizQuestions.length,
+            timestamp: new Date().toISOString(),
+            responses: responses // Optional: if you want to store detailed answers
+        };
+
+        // Simulated Submission
+        console.log("Submitting to Google Sheets Pipeline:", payload);
+
+        // Example implementation once you have the URL:
+        /*
+        fetch(scriptURL, { 
+            method: 'POST', 
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        })
+        .then(response => console.log('Successfully submitted'))
+        .catch(error => console.error('Error!', error.message));
+        */
     }
 
     finalQuizRestartBtn.addEventListener('click', () => {
-        startFinalQuiz();
+        // Hide quiz but potentially re-prompt for name if they want to retake differently,
+        // or just let them retake under the same name.
+        startFinalQuiz(finalQuizUserName);
     });
 
     finalQuizHomeBtn.addEventListener('click', () => {
