@@ -904,6 +904,8 @@ document.addEventListener('DOMContentLoaded', () => {
         finalQuizOptions.innerHTML = '';
         finalQuizNextBtn.classList.add('hidden');
         finalQuizSubmitBtn.classList.add('hidden');
+        finalQuizNextBtn.disabled = false;
+        finalQuizSubmitBtn.disabled = false;
 
         questionData.options.forEach((option, index) => {
             const btn = document.createElement('button');
@@ -948,6 +950,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (finalQuizSelectedOptionIndex === questionData.correctAnswerIndex) {
             finalQuizScoreCount++;
         }
+
+        finalQuizUserResponses.push({
+            question: questionData.question,
+            selected: questionData.options[finalQuizSelectedOptionIndex],
+            isCorrect: finalQuizSelectedOptionIndex === questionData.correctAnswerIndex
+        });
 
         // Advance immediately without showing correct/wrong feedback
         finalQuizCurrentQuestionIndex++;
