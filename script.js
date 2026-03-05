@@ -982,35 +982,34 @@ document.addEventListener('DOMContentLoaded', () => {
             finalQuizResultArea.querySelector('div').textContent = '📚';
         }
 
-        submitToGoogleSheets(finalQuizUserName, finalQuizScoreCount, finalQuizUserResponses);
+        submitToGoogleForms(finalQuizUserName, finalQuizScoreCount, finalQuizUserResponses);
     }
 
-    function submitToGoogleSheets(name, score, responses) {
-        // REPLACE this URL with your actual Google Apps Script Web App URL
-        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
+    function submitToGoogleForms(name, score, responses) {
+        // REPLACE this URL with your actual Google Form 'formResponse' URL
+        const formURL = 'https://docs.google.com/forms/d/e/PASTE_YOUR_FORM_ID_HERE/formResponse';
 
-        const payload = {
-            name: name,
-            score: score,
-            total: finalQuizQuestions.length,
-            timestamp: new Date().toISOString(),
-            responses: responses // Optional: if you want to store detailed answers
-        };
+        // REPLACE these 3 IDs with the entry IDs you found in step 3 of the guide
+        const nameEntryID = 'entry.111111111';
+        const scoreEntryID = 'entry.222222222';
+        const totalEntryID = 'entry.333333333';
 
-        // Simulated Submission
-        console.log("Submitting to Google Sheets Pipeline:", payload);
+        const formData = new FormData();
+        formData.append(nameEntryID, name);
+        formData.append(scoreEntryID, score);
+        formData.append(totalEntryID, finalQuizQuestions.length);
 
-        // Example implementation once you have the URL:
-        /*
-        fetch(scriptURL, { 
-            method: 'POST', 
+        console.log("Submitting directly to Google Forms...");
+
+        // Note: Google Forms does not return a CORS-friendly response. 
+        // We catch the opaque response and assume 'no-cors' success.
+        fetch(formURL, {
+            method: 'POST',
             mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            body: formData
         })
-        .then(response => console.log('Successfully submitted'))
-        .catch(error => console.error('Error!', error.message));
-        */
+            .then(() => console.log('Form submitted successfully hidden in background.'))
+            .catch(error => console.error('Form Submission Error:', error));
     }
 
     finalQuizRestartBtn.addEventListener('click', () => {
