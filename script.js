@@ -570,7 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modalProceedBtn.addEventListener('click', () => {
         const userName = finalQuizUserNameInput.value.trim();
         if (!userName) {
-            alert('Please enter your name or email to proceed.');
+            alert('Please enter your name to proceed.');
             return;
         }
         customAlertModal.classList.add('hidden');
