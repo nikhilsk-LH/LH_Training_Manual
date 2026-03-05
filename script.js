@@ -1001,7 +1001,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalEntryID = 'entry.1147528875';
         const responsesEntryID = 'entry.950717047';
 
-        const formData = new FormData();
+        const formData = new URLSearchParams();
         formData.append(nameEntryID, name);
         formData.append(scoreEntryID, score);
         formData.append(totalEntryID, finalQuizQuestions.length);
@@ -1017,7 +1017,10 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(formURL, {
             method: 'POST',
             mode: 'no-cors',
-            body: formData
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: formData.toString()
         })
             .then(() => console.log('Form submitted successfully hidden in background.'))
             .catch(error => console.error('Form Submission Error:', error));
