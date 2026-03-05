@@ -990,40 +990,35 @@ document.addEventListener('DOMContentLoaded', () => {
             finalQuizResultArea.querySelector('div').textContent = '📚';
         }
 
-        submitToGoogleForms(finalQuizUserName, finalQuizScoreCount, finalQuizUserResponses);
+        submitToGoogleSheets(finalQuizUserName, finalQuizScoreCount, finalQuizUserResponses);
     }
 
-    function submitToGoogleForms(name, score, responses) {
-        const formURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLScEMSH7bIZ01zUaFnAKLwD3Xvs3E02ksB_QizaCEb4mi4p1KA/formResponse';
+    function submitToGoogleSheets(name, score, responses) {
+        // REPLACE this URL with your actual Google Apps Script Web App URL
+        // Instructions are in the google_sheets_integration.md guide!
+        const scriptURL = 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL';
 
-        const nameEntryID = 'entry.140151157';
-        const scoreEntryID = 'entry.286756535';
-        const totalEntryID = 'entry.1147528875';
-        const responsesEntryID = 'entry.950717047';
+        const payload = {
+            name: name,
+            score: score,
+            total: finalQuizQuestions.length,
+            timestamp: new Date().toISOString(),
+            responses: responses // Contains exactly what they picked
+        };
 
-        const formData = new URLSearchParams();
-        formData.append(nameEntryID, name);
-        formData.append(scoreEntryID, score);
-        formData.append(totalEntryID, finalQuizQuestions.length);
+        console.log("Submitting to Google Sheets Pipeline:", payload);
 
-        // Convert responses array to a readable string format
-        const responsesText = responses.length > 0 ? JSON.stringify(responses) : "Completed Quiz";
-        formData.append(responsesEntryID, responsesText);
-
-        console.log("Submitting directly to Google Forms...");
-
-        // Note: Google Forms does not return a CORS-friendly response. 
-        // We catch the opaque response and assume 'no-cors' success.
-        fetch(formURL, {
-            method: 'POST',
+        // Remove the /* and */ to activate this once you paste your scriptURL!
+        /*
+        fetch(scriptURL, { 
+            method: 'POST', 
             mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: formData.toString()
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
         })
-            .then(() => console.log('Form submitted successfully hidden in background.'))
-            .catch(error => console.error('Form Submission Error:', error));
+        .then(() => console.log('Successfully submitted'))
+        .catch(error => console.error('Error!', error));
+        */
     }
 
     finalQuizRestartBtn.addEventListener('click', () => {
