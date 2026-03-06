@@ -851,6 +851,31 @@ document.addEventListener('DOMContentLoaded', () => {
             question: "15. Where do we publish slots?",
             options: ["Slack", "WhatsApp", "When I Work", "LMFS"],
             correctAnswerIndex: 2
+        },
+        {
+            question: "16. What is the purpose of monitoring driver performance?",
+            options: ["To reduce the number of drivers", "To ensure service quality and efficiency", "To reduce delays", "To increase customer rating"],
+            correctAnswerIndex: 1
+        },
+        {
+            question: "17. Why is route optimization important?",
+            options: ["To reduce driver earnings", "To complete tasks efficiently and reduce travel time", "To control cost", "To increase system workload"],
+            correctAnswerIndex: 1
+        },
+        {
+            question: "18. While monitoring LMFS, you notice a driver moving in the opposite direction of the assigned task location. What should you do?",
+            options: ["Immediately reassign the task to avoid delay.", "Contact the driver to confirm the reason for deviation", "Cancel the driver’s route", "Ignore it since GPS may be incorrect"],
+            correctAnswerIndex: 1
+        },
+        {
+            question: "19. A driver reports that the LMFS app is not updating task status even after completion. What should be the most appropriate response?",
+            options: ["Ask the driver to ignore and continue", "Complete the order manually from Admin end.", "Ask the driver to try troubleshooting steps and report the issue if it persists", "Reassign all tasks immediately"],
+            correctAnswerIndex: 2
+        },
+        {
+            question: "20. A driver cancels a block 15 minutes before start time and the market demand is moderate. What should be done?",
+            options: ["Immediately publish a new block on the platform", "Split the route between available active drivers if possible", "Cancel all orders assigned to that block", "Wait until customers complain"],
+            correctAnswerIndex: 1
         }
     ];
 
