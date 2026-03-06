@@ -109,10 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const workflows = {
         'driver_cancel': {
             images: [
-                'assets/images/driver_cancellation/1.png',
-                'assets/images/driver_cancellation/2.png',
-                'assets/images/driver_cancellation/3.png',
-                'assets/images/driver_cancellation/4.png'
+                'assets/images/driver_cancellation/1.jpg',
+                'assets/images/driver_cancellation/2.jpg',
+                'assets/images/driver_cancellation/3.jpg',
+                'assets/images/driver_cancellation/4.jpg'
             ],
             quiz: {
                 question: "What is the 1st step in driver cancellation?",
@@ -127,13 +127,13 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'vehicle_breakdown': {
             images: [
-                'assets/images/Driver vehicle break down/1.png',
-                'assets/images/Driver vehicle break down/2.png',
-                'assets/images/Driver vehicle break down/3.png',
-                'assets/images/Driver vehicle break down/4.png',
-                'assets/images/Driver vehicle break down/5.png',
-                'assets/images/Driver vehicle break down/6.png',
-                'assets/images/Driver vehicle break down/7.png'
+                'assets/images/Driver vehicle break down/1.jpg',
+                'assets/images/Driver vehicle break down/2.jpg',
+                'assets/images/Driver vehicle break down/3.jpg',
+                'assets/images/Driver vehicle break down/4.jpg',
+                'assets/images/Driver vehicle break down/5.jpg',
+                'assets/images/Driver vehicle break down/6.jpg',
+                'assets/images/Driver vehicle break down/7.jpg'
             ],
             quiz: {
                 question: "How to do route reassignment?",
@@ -148,10 +148,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'payment_query': {
             images: [
-                'assets/images/Payment related query/1.png',
-                'assets/images/Payment related query/2.png',
-                'assets/images/Payment related query/3.png',
-                'assets/images/Payment related query/4.png'
+                'assets/images/Payment related query/1.jpg',
+                'assets/images/Payment related query/2.jpg',
+                'assets/images/Payment related query/3.jpg',
+                'assets/images/Payment related query/4.jpg'
             ],
             quiz: {
                 question: "What is the mail id for the driver to sent e-mail?",
@@ -166,13 +166,13 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'publishing_slots': {
             images: [
-                'assets/images/Block swap between driver /1.png',
-                'assets/images/Block swap between driver /2.png',
-                'assets/images/Block swap between driver /3.png',
-                'assets/images/Block swap between driver /4.png',
-                'assets/images/Block swap between driver /5.png',
-                'assets/images/Block swap between driver /6.png',
-                'assets/images/Block swap between driver /7.png'
+                'assets/images/Block swap between driver /1.jpg',
+                'assets/images/Block swap between driver /2.jpg',
+                'assets/images/Block swap between driver /3.jpg',
+                'assets/images/Block swap between driver /4.jpg',
+                'assets/images/Block swap between driver /5.jpg',
+                'assets/images/Block swap between driver /6.jpg',
+                'assets/images/Block swap between driver /7.jpg'
             ],
             quiz: {
                 question: "When is a block Published on When I Work",
@@ -187,12 +187,12 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'swapping_blocks': {
             images: [
-                'assets/images/WIW/1.png',
-                'assets/images/WIW/2.png',
-                'assets/images/WIW/3.png',
-                'assets/images/WIW/4.png',
-                'assets/images/WIW/5.png',
-                'assets/images/WIW/6.png'
+                'assets/images/WIW/1.jpg',
+                'assets/images/WIW/2.jpg',
+                'assets/images/WIW/3.jpg',
+                'assets/images/WIW/4.jpg',
+                'assets/images/WIW/5.jpg',
+                'assets/images/WIW/6.jpg'
             ],
             quiz: {
                 question: "What if the second driver is already having a block?",
@@ -207,26 +207,26 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'general_etiquette': {
             images: [
-                'assets/images/Etiquette/1.png',
-                'assets/images/Etiquette/2.png',
-                'assets/images/Etiquette/3.png',
-                'assets/images/Etiquette/4.png'
+                'assets/images/Etiquette/1.jpg',
+                'assets/images/Etiquette/2.jpg',
+                'assets/images/Etiquette/3.jpg',
+                'assets/images/Etiquette/4.jpg'
             ],
             quiz: null
         },
         'driver_feedback': {
             images: [
-                'assets/images/Feedbacks/Driver/1.png',
-                'assets/images/Feedbacks/Driver/2.png',
-                'assets/images/Feedbacks/Driver/3.png',
-                'assets/images/Feedbacks/Driver/4.png',
-                'assets/images/Feedbacks/Driver/5.png',
-                'assets/images/Feedbacks/Driver/6.png',
-                'assets/images/Feedbacks/Driver/7.png',
-                'assets/images/Feedbacks/Driver/8.png',
-                'assets/images/Feedbacks/Driver/9.png',
-                'assets/images/Feedbacks/Driver/10.png',
-                'assets/images/Feedbacks/Driver/11.png'
+                'assets/images/Feedbacks/Driver/1.jpg',
+                'assets/images/Feedbacks/Driver/2.jpg',
+                'assets/images/Feedbacks/Driver/3.jpg',
+                'assets/images/Feedbacks/Driver/4.jpg',
+                'assets/images/Feedbacks/Driver/5.jpg',
+                'assets/images/Feedbacks/Driver/6.jpg',
+                'assets/images/Feedbacks/Driver/7.jpg',
+                'assets/images/Feedbacks/Driver/8.jpg',
+                'assets/images/Feedbacks/Driver/9.jpg',
+                'assets/images/Feedbacks/Driver/10.jpg',
+                'assets/images/Feedbacks/Driver/11.jpg'
             ],
             quiz: {
                 question: "If driver has a block from 5-9 and if he starts at 5:40, should be raise a feedback for lateness?",
@@ -239,11 +239,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'first_slot_feedback': {
             images: [
-                'assets/images/Feedbacks/Test/1.png',
-                'assets/images/Feedbacks/Test/2.png',
-                'assets/images/Feedbacks/Test/3.png',
-                'assets/images/Feedbacks/Test/4.png',
-                'assets/images/Feedbacks/Test/5.png'
+                'assets/images/Feedbacks/Test/1.jpg',
+                'assets/images/Feedbacks/Test/2.jpg',
+                'assets/images/Feedbacks/Test/3.jpg',
+                'assets/images/Feedbacks/Test/4.jpg',
+                'assets/images/Feedbacks/Test/5.jpg'
             ],
             quiz: {
                 question: "How to check if the test slot is a good fit for the platform?",
@@ -258,23 +258,23 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'product_feedback': {
             images: [
-                'assets/images/Feedbacks/Product/1.png',
-                'assets/images/Feedbacks/Product/2.png',
-                'assets/images/Feedbacks/Product/3.png',
-                'assets/images/Feedbacks/Product/4.png',
-                'assets/images/Feedbacks/Product/5.png'
+                'assets/images/Feedbacks/Product/1.jpg',
+                'assets/images/Feedbacks/Product/2.jpg',
+                'assets/images/Feedbacks/Product/3.jpg',
+                'assets/images/Feedbacks/Product/4.jpg',
+                'assets/images/Feedbacks/Product/5.jpg'
             ],
             quiz: null
         },
         'driver_mapping': {
             images: [
-                'assets/images/Driver mapping/1.png',
-                'assets/images/Driver mapping/2.png',
-                'assets/images/Driver mapping/3.png',
-                'assets/images/Driver mapping/4.png',
-                'assets/images/Driver mapping/5.png',
-                'assets/images/Driver mapping/6.png',
-                'assets/images/Driver mapping/7.png'
+                'assets/images/Driver mapping/1.jpg',
+                'assets/images/Driver mapping/2.jpg',
+                'assets/images/Driver mapping/3.jpg',
+                'assets/images/Driver mapping/4.jpg',
+                'assets/images/Driver mapping/5.jpg',
+                'assets/images/Driver mapping/6.jpg',
+                'assets/images/Driver mapping/7.jpg'
             ],
             quiz: {
                 question: "How to check which Facility, is the driver operating for?",
@@ -289,22 +289,22 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'communication': {
             images: [
-                'assets/images/communication/1.png',
-                'assets/images/communication/2.png',
-                'assets/images/communication/3.png',
-                'assets/images/communication/4.png'
+                'assets/images/communication/1.jpg',
+                'assets/images/communication/2.jpg',
+                'assets/images/communication/3.jpg',
+                'assets/images/communication/4.jpg'
 
             ],
             quiz: null
         },
         'fleet_dashboard': {
             images: [
-                'assets/images/Fleet dashboard/1.png',
-                'assets/images/Fleet dashboard/2.png',
-                'assets/images/Fleet dashboard/3.png',
-                'assets/images/Fleet dashboard/4.png',
-                'assets/images/Fleet dashboard/5.png',
-                'assets/images/Fleet dashboard/6.png'
+                'assets/images/Fleet dashboard/1.jpg',
+                'assets/images/Fleet dashboard/2.jpg',
+                'assets/images/Fleet dashboard/3.jpg',
+                'assets/images/Fleet dashboard/4.jpg',
+                'assets/images/Fleet dashboard/5.jpg',
+                'assets/images/Fleet dashboard/6.jpg'
             ],
             quiz: {
                 question: "How will we identify delayed tasks.",
@@ -319,11 +319,11 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'start_time_confirmation': {
             images: [
-                'assets/images/BO /Start time/1.png',
-                'assets/images/BO /Start time/2.png',
-                'assets/images/BO /Start time/3.png',
-                'assets/images/BO /Start time/4.png',
-                'assets/images/BO /Start time/5.png'
+                'assets/images/BO /Start time/1.jpg',
+                'assets/images/BO /Start time/2.jpg',
+                'assets/images/BO /Start time/3.jpg',
+                'assets/images/BO /Start time/4.jpg',
+                'assets/images/BO /Start time/5.jpg'
             ],
             quiz: {
                 question: "What is the importance of Start time confirmation",
@@ -338,14 +338,14 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'address_updates': {
             images: [
-                'assets/images/BO /Address/1.png',
-                'assets/images/BO /Address/2.png',
-                'assets/images/BO /Address/3.png',
-                'assets/images/BO /Address/4.png',
-                'assets/images/BO /Address/5.png',
-                'assets/images/BO /Address/6.png',
-                'assets/images/BO /Address/7.png',
-                'assets/images/BO /Address/8.png'
+                'assets/images/BO /Address/1.jpg',
+                'assets/images/BO /Address/2.jpg',
+                'assets/images/BO /Address/3.jpg',
+                'assets/images/BO /Address/4.jpg',
+                'assets/images/BO /Address/5.jpg',
+                'assets/images/BO /Address/6.jpg',
+                'assets/images/BO /Address/7.jpg',
+                'assets/images/BO /Address/8.jpg'
             ],
             quiz: {
                 question: "What to do if the new address is served by Separate Facility",
@@ -360,10 +360,10 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'looker_studio': {
             images: [
-                'assets/images/BO /Looker/1.png',
-                'assets/images/BO /Looker/2.png',
-                'assets/images/BO /Looker/3.png',
-                'assets/images/BO /Looker/4.png'
+                'assets/images/BO /Looker/1.jpg',
+                'assets/images/BO /Looker/2.jpg',
+                'assets/images/BO /Looker/3.jpg',
+                'assets/images/BO /Looker/4.jpg'
             ],
             quiz: {
                 question: "IF a facility has hit capacity , what needs to be done",
@@ -378,139 +378,139 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'backoffice_features': {
             images: [
-                'assets/images/BO /BO feature/1.png',
-                'assets/images/BO /BO feature/2.png',
-                'assets/images/BO /BO feature/3.png',
-                'assets/images/BO /BO feature/4.png',
-                'assets/images/BO /BO feature/5.png',
-                'assets/images/BO /BO feature/6.png',
-                'assets/images/BO /BO feature/7.png',
-                'assets/images/BO /BO feature/8.png',
-                'assets/images/BO /BO feature/9.png',
-                'assets/images/BO /BO feature/10.png',
-                'assets/images/BO /BO feature/11.png',
-                'assets/images/BO /BO feature/12.png',
-                'assets/images/BO /BO feature/13.png',
-                'assets/images/BO /BO feature/14.png',
-                'assets/images/BO /BO feature/15.png'
+                'assets/images/BO /BO feature/1.jpg',
+                'assets/images/BO /BO feature/2.jpg',
+                'assets/images/BO /BO feature/3.jpg',
+                'assets/images/BO /BO feature/4.jpg',
+                'assets/images/BO /BO feature/5.jpg',
+                'assets/images/BO /BO feature/6.jpg',
+                'assets/images/BO /BO feature/7.jpg',
+                'assets/images/BO /BO feature/8.jpg',
+                'assets/images/BO /BO feature/9.jpg',
+                'assets/images/BO /BO feature/10.jpg',
+                'assets/images/BO /BO feature/11.jpg',
+                'assets/images/BO /BO feature/12.jpg',
+                'assets/images/BO /BO feature/13.jpg',
+                'assets/images/BO /BO feature/14.jpg',
+                'assets/images/BO /BO feature/15.jpg'
             ],
             quiz: null
         },
         'rescheduling_tasks': {
             images: [
-                'assets/images/BO /Reschedule/1.png',
-                'assets/images/BO /Reschedule/2.png',
-                'assets/images/BO /Reschedule/3.png',
-                'assets/images/BO /Reschedule/4.png',
-                'assets/images/BO /Reschedule/5.png'
+                'assets/images/BO /Reschedule/1.jpg',
+                'assets/images/BO /Reschedule/2.jpg',
+                'assets/images/BO /Reschedule/3.jpg',
+                'assets/images/BO /Reschedule/4.jpg',
+                'assets/images/BO /Reschedule/5.jpg'
             ],
             quiz: null
         },
         'facility_tasks': {
             images: [
-                'assets/images/BO /FAC tasks/1.png',
-                'assets/images/BO /FAC tasks/2.png',
-                'assets/images/BO /FAC tasks/3.png',
-                'assets/images/BO /FAC tasks/4.png',
-                'assets/images/BO /FAC tasks/5.png'
+                'assets/images/BO /FAC tasks/1.jpg',
+                'assets/images/BO /FAC tasks/2.jpg',
+                'assets/images/BO /FAC tasks/3.jpg',
+                'assets/images/BO /FAC tasks/4.jpg',
+                'assets/images/BO /FAC tasks/5.jpg'
             ],
             quiz: null
         },
         'driver_cancellation_thread': {
             images: [
-                'assets/images/Slack/cancellation/1.png',
-                'assets/images/Slack/cancellation/2.png',
-                'assets/images/Slack/cancellation/3.png',
-                'assets/images/Slack/cancellation/4.png',
-                'assets/images/Slack/cancellation/5.png'
+                'assets/images/Slack/cancellation/1.jpg',
+                'assets/images/Slack/cancellation/2.jpg',
+                'assets/images/Slack/cancellation/3.jpg',
+                'assets/images/Slack/cancellation/4.jpg',
+                'assets/images/Slack/cancellation/5.jpg'
             ],
             quiz: null
         },
         'overutilisation': {
             images: [
-                'assets/images/Slack/Over utilization thread/1.png',
-                'assets/images/Slack/Over utilization thread/2.png',
-                'assets/images/Slack/Over utilization thread/3.png',
-                'assets/images/Slack/Over utilization thread/4.png',
-                'assets/images/Slack/Over utilization thread/5.png'
+                'assets/images/Slack/Over utilization thread/1.jpg',
+                'assets/images/Slack/Over utilization thread/2.jpg',
+                'assets/images/Slack/Over utilization thread/3.jpg',
+                'assets/images/Slack/Over utilization thread/4.jpg',
+                'assets/images/Slack/Over utilization thread/5.jpg'
             ],
             quiz: null
         },
         'start_time_checks': {
             images: [
-                'assets/images/Slack/Start time checking/1.png',
-                'assets/images/Slack/Start time checking/2.png',
-                'assets/images/Slack/Start time checking/3.png',
-                'assets/images/Slack/Start time checking/4.png',
-                'assets/images/Slack/Start time checking/5.png'
+                'assets/images/Slack/Start time checking/1.jpg',
+                'assets/images/Slack/Start time checking/2.jpg',
+                'assets/images/Slack/Start time checking/3.jpg',
+                'assets/images/Slack/Start time checking/4.jpg',
+                'assets/images/Slack/Start time checking/5.jpg'
             ],
             quiz: null
         },
         'order_missing': {
             images: [
-                'assets/images/Slack/Order missing/1.png',
-                'assets/images/Slack/Order missing/2.png',
-                'assets/images/Slack/Order missing/3.png',
-                'assets/images/Slack/Order missing/4.png',
-                'assets/images/Slack/Order missing/5.png'
+                'assets/images/Slack/Order missing/1.jpg',
+                'assets/images/Slack/Order missing/2.jpg',
+                'assets/images/Slack/Order missing/3.jpg',
+                'assets/images/Slack/Order missing/4.jpg',
+                'assets/images/Slack/Order missing/5.jpg'
             ],
             quiz: null
         },
         'facility_feedback': {
             images: [
-                'assets/images/POPS/feedback/1.png',
-                'assets/images/POPS/feedback/2.png'
+                'assets/images/POPS/feedback/1.jpg',
+                'assets/images/POPS/feedback/2.jpg'
             ],
             quiz: null
         },
         'driver_list': {
             images: [
-                'assets/images/POPS/list/1.png',
-                'assets/images/POPS/list/2.png',
-                'assets/images/POPS/list/3.png',
-                'assets/images/POPS/list/4.png',
-                'assets/images/POPS/list/5.png'
+                'assets/images/POPS/list/1.jpg',
+                'assets/images/POPS/list/2.jpg',
+                'assets/images/POPS/list/3.jpg',
+                'assets/images/POPS/list/4.jpg',
+                'assets/images/POPS/list/5.jpg'
             ],
             quiz: null
         },
         'time_slots': {
             images: [
-                'assets/images/Cops/slot/1.png',
-                'assets/images/Cops/slot/2.png',
-                'assets/images/Cops/slot/3.png'
+                'assets/images/Cops/slot/1.jpg',
+                'assets/images/Cops/slot/2.jpg',
+                'assets/images/Cops/slot/3.jpg'
             ],
             quiz: null
         },
         'swap_orders': {
             images: [
-                'assets/images/Cops/swap/1.png',
-                'assets/images/Cops/swap/2.png'
+                'assets/images/Cops/swap/1.jpg',
+                'assets/images/Cops/swap/2.jpg'
             ],
             quiz: null
         },
         'cops_queries': {
             images: [
-                'assets/images/Cops/query/1.png',
-                'assets/images/Cops/query/2.png'
+                'assets/images/Cops/query/1.jpg',
+                'assets/images/Cops/query/2.jpg'
             ],
             quiz: null
         },
         'how_tags_work': {
             images: [
-                'assets/images/How Tags work/0.png',
-                'assets/images/How Tags work/1.png',
-                'assets/images/How Tags work/2.png',
-                'assets/images/How Tags work/3.png',
-                'assets/images/How Tags work/4.png',
-                'assets/images/How Tags work/5.png',
-                'assets/images/How Tags work/6.png',
-                'assets/images/How Tags work/7.png',
-                'assets/images/How Tags work/8.png',
-                'assets/images/How Tags work/9.png',
-                'assets/images/How Tags work/10.png',
-                'assets/images/How Tags work/11.png',
-                'assets/images/How Tags work/12.png',
-                'assets/images/How Tags work/13.png'
+                'assets/images/How Tags work/0.jpg',
+                'assets/images/How Tags work/1.jpg',
+                'assets/images/How Tags work/2.jpg',
+                'assets/images/How Tags work/3.jpg',
+                'assets/images/How Tags work/4.jpg',
+                'assets/images/How Tags work/5.jpg',
+                'assets/images/How Tags work/6.jpg',
+                'assets/images/How Tags work/7.jpg',
+                'assets/images/How Tags work/8.jpg',
+                'assets/images/How Tags work/9.jpg',
+                'assets/images/How Tags work/10.jpg',
+                'assets/images/How Tags work/11.jpg',
+                'assets/images/How Tags work/12.jpg',
+                'assets/images/How Tags work/13.jpg'
             ],
             quiz: null
         }
