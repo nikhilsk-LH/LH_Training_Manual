@@ -521,6 +521,120 @@ document.addEventListener('DOMContentLoaded', () => {
     let maxSlideReached = 0;
     let navigationStack = [];
     let currentCategoryContext = { title: 'LOGS', items: logsSubCategories };
+
+    // --- Expandable Search Bar ---
+    const searchContainer = document.querySelector('.search-container');
+    const searchInput = document.getElementById('searchInput');
+    const searchToggleBtn = document.getElementById('searchToggleBtn');
+    const searchResults = document.getElementById('searchResults');
+
+    // Toggle expansion
+    searchToggleBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        searchInput.classList.toggle('active');
+        if (searchInput.classList.contains('active')) {
+            searchInput.focus();
+        } else {
+            searchInput.value = '';
+            searchResults.classList.remove('active');
+            setTimeout(() => { searchResults.innerHTML = ''; searchResults.classList.add('hidden'); }, 300);
+        }
+    });
+
+    // Close on click outside
+    document.addEventListener('click', (e) => {
+        if (!searchContainer.contains(e.target) && searchInput.classList.contains('active')) {
+            searchInput.classList.remove('active');
+            searchInput.value = '';
+            searchResults.classList.remove('active');
+            setTimeout(() => { searchResults.innerHTML = ''; searchResults.classList.add('hidden'); }, 300);
+        }
+    });
+
+    // Generate search index flat map
+    const searchIndex = [];
+
+    logsSubCategories.forEach(item => searchIndex.push({ ...item, parent: 'LOGS' }));
+    popsSubCategories.forEach(item => searchIndex.push({ ...item, parent: 'POPS' }));
+    copsSubCategories.forEach(item => searchIndex.push({ ...item, parent: 'COPS' }));
+
+    Object.keys(subCategories).forEach(catKey => {
+        const catName = searchIndex.find(i => i.id === catKey)?.title || catKey;
+        subCategories[catKey].forEach(item => searchIndex.push({ ...item, parent: catName }));
+    });
+
+    Object.keys(workflows).forEach(workKey => {
+        const workflow = workflows[workKey];
+        const workName = searchIndex.find(i => i.id === workKey)?.title || workKey;
+        if (workflow.quiz && workflow.quiz.question) {
+            searchIndex.push({
+                title: workflow.quiz.question,
+                icon: '❓',
+                id: workKey,
+                parent: workName + ' (Quiz)'
+            });
+        }
+    });
+
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+
+        if (query.length === 0) {
+            searchResults.classList.remove('active');
+            setTimeout(() => { searchResults.innerHTML = ''; searchResults.classList.add('hidden'); }, 300);
+            return;
+        }
+
+        const filtered = searchIndex.filter(item =>
+            item.title.toLowerCase().includes(query) ||
+            item.parent.toLowerCase().includes(query)
+        );
+
+        renderSearchResults(filtered);
+    });
+
+    function renderSearchResults(results) {
+        searchResults.innerHTML = '';
+        searchResults.classList.remove('hidden');
+        setTimeout(() => searchResults.classList.add('active'), 10);
+
+        if (results.length === 0) {
+            searchResults.innerHTML = '<div class="no-results">No results found for your search.</div>';
+            return;
+        }
+
+        results.forEach(item => {
+            const resultDiv = document.createElement('div');
+            resultDiv.className = 'search-result-item';
+            resultDiv.innerHTML = `
+                <div class="search-result-icon">${item.icon}</div>
+                <div class="search-result-text">
+                    <span class="search-result-title">${item.title}</span>
+                    <span class="search-result-parent">${item.parent}</span>
+                </div>
+            `;
+
+            resultDiv.addEventListener('click', () => {
+                showMainHome();
+                searchInput.classList.remove('active');
+                searchInput.value = '';
+                searchResults.classList.remove('active');
+                setTimeout(() => { searchResults.innerHTML = ''; searchResults.classList.add('hidden'); }, 300);
+
+                if (subCategories[item.id]) {
+                    navigationStack.push({ view: 'home' });
+                    showCategoryView(item.title, subCategories[item.id]);
+                } else if (workflows[item.id]) {
+                    navigationStack.push({ view: 'home' });
+                    startWorkflow(item.id);
+                } else {
+                    alert('Feature coming soon!');
+                }
+            });
+
+            searchResults.appendChild(resultDiv);
+        });
+    }
     // --- Navigation & View Helpers ---
     function hideAllViews() {
         mainCardsContainer.classList.add('hidden');
