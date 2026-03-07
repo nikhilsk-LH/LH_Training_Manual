@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     const copsSubCategories = [
-        { title: 'Quries', icon: '❓', id: 'cops_queries' },
+        { title: 'Queries', icon: '❓', id: 'cops_queries' },
         { title: 'Swap orders', icon: '🔁', id: 'swap_orders' },
         { title: 'Time slots', icon: '⏱️', id: 'time_slots' }
     ];
