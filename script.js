@@ -944,7 +944,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             question: "11. While rescheduling the orders, how do you decide the new time slot?",
             options: ["Assign the first time slot seen on the backend.", "Check the task location and assign a slot", "Consider the days business and assign a suitable slot", "Check with COPS"],
-            correctAnswerIndex: 3
+            correctAnswerIndex: 2
         },
         {
             question: "12. What is the important point in Route Reassignment?",
