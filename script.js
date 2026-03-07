@@ -566,14 +566,8 @@ document.addEventListener('DOMContentLoaded', () => {
     Object.keys(workflows).forEach(workKey => {
         const workflow = workflows[workKey];
         const workName = searchIndex.find(i => i.id === workKey)?.title || workKey;
-        if (workflow.quiz && workflow.quiz.question) {
-            searchIndex.push({
-                title: workflow.quiz.question,
-                icon: '❓',
-                id: workKey,
-                parent: workName + ' (Quiz)'
-            });
-        }
+        // Quizzes have been strictly removed from the search index context
+        // to prevent users from seeing questions ahead of time.
     });
 
     searchInput.addEventListener('input', (e) => {
